@@ -19,4 +19,4 @@ push_subtree:
 deploy: push_subtree
 
 ssh_deploy:
-	ssh kurei@noty "cd axcoto; git pull origin master"
+	ssh kurei@noty "bash deploy-axcoto.sh"
