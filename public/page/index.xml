@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Pages on My New Hugo Site</title>
+    <link>http://axcoto.com/page/</link>
+    <description>Recent content in Pages on My New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 03 Jul 2016 00:51:27 -0700</lastBuildDate>
+    <atom:link href="http://axcoto.com/page/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Front page</title>
+      <link>http://axcoto.com/page/front/</link>
+      <pubDate>Sun, 03 Jul 2016 00:51:27 -0700</pubDate>
+      
+      <guid>http://axcoto.com/page/front/</guid>
+      <description>&lt;p&gt;I am Vinh. Just a humbdle&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
