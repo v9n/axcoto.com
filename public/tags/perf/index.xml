@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Perf on My New Hugo Site</title>
+    <link>http://axcoto.com/tags/perf/</link>
+    <description>Recent content in Perf on My New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 03 Jul 2016 23:55:36 -0700</lastBuildDate>
+    <atom:link href="http://axcoto.com/tags/perf/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>understand linux performance</title>
+      <link>http://axcoto.com/notes/understand-linux-performance/</link>
+      <pubDate>Sun, 03 Jul 2016 23:55:36 -0700</pubDate>
+      
+      <guid>http://axcoto.com/notes/understand-linux-performance/</guid>
+      <description>&lt;p&gt;Linux gives many tool to represent how well the system is perform. The
+issue is the output of those tool is hard to understand. In this note,
+let&amp;rsquo;s dive into some metric from default system.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

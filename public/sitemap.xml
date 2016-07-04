@@ -3,13 +3,23 @@
   
   <url>
     <loc>http://axcoto.com/</loc>
-    <lastmod>2016-07-03T00:51:27-07:00</lastmod>
+    <lastmod>2016-07-04T00:09:09-07:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://axcoto.com/page/front/</loc>
-    <lastmod>2016-07-03T00:51:27-07:00</lastmod>
+    <loc>http://axcoto.com/shop/simply-rethinkdb/</loc>
+    <lastmod>2016-07-04T00:09:09-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://axcoto.com/notes/understand-linux-performance/</loc>
+    <lastmod>2016-07-03T23:55:36-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://axcoto.com/notes/using-letencrypt-with-haproxy/</loc>
+    <lastmod>2016-07-03T23:38:50-07:00</lastmod>
   </url>
   
 </urlset>
