@@ -1,40 +1,6 @@
-<!DOCTYPE html>
-<html>
+{{ partial "header.html" . }}
 
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>Axcoto - DevOps and Development Services</title>
-    <meta name="description" content="Axcoto is a free lancer service focus in web&amp; mobile development. I also sell ready-to-use code library such as WordPress plugin, jQuery plugin, custom Rails/PHP apps">
-    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="/css/cutestrap.min.css">
-    <link rel="stylesheet" href="/css/main.css">
-    <link rel="canonical" href="https://axcoto.com/">
-    <link rel="alternate" type="application/rss+xml" title="Axcoto" href="https://axcoto.com/feed.xml">
-  </head>
-  <body>
-
-    <header class="wrapper-large ta-center">
-    <h1>
-      <img src="/images/logo50.jpg" class="logo" alt="Axcoto" />
-    </h1>
-    <p>I'm Vinh and I go under this Axcoto name</p>
-    <p>
-      <code class="fs-large">Live with Mochi and a beautiful wife to build thing </code>
-    </p>
-    <ul class="nav">
-      <li><a href="/#about">About</a>
-      <li><a href="/#service" target="_blank">Service</a></li>
-      <li><a href="/shop" target="_blank">Shop</a></li>
-      <li><a href="/#work" target="_blank">Works</a></li>
-      <li><a href="/notes" target="_blank">Notes</a></li>
-      <li><a href="https://log.axcoto.com" target="_blank">Old blog</a></li>
-    </ul>
-    </header>
-
-    <section class="wrapper">
+<section class="wrapper">
 
 <section class="wrapper-small">
   <h3 class="ta-center" id="about">About me</h3>
@@ -69,7 +35,7 @@
   I'm <a href="https://noty.im">noty</a> founder, a service that monitor your application and notifify you. 
   <h5 class="ta-left" id="book">Books</h4>
   <p>
-  I like RethinkDB a lot and write a book about it it. Check it out<a href="leanpub.com/simplyrethinkdb">Simply RethinkDB</a>.
+  I like RethinkDB a lot and write a book about it it. Check it out <a href="leanpub.com/simplyrethinkdb">Simply RethinkDB</a>.
   </p>
   <h5 class="ta-left" id="book">Open Source</h4>
   <p>
@@ -85,15 +51,4 @@
   </ul>
 </section>
 
-    <footer class="grid wrapper">
-    <div class="copyright">
-      Axcoto &copy;2016.
-    </div>
-    <div class="ta-right">
-      Made with happiness when <a href="https://axcoto.com" target="https://mochi.axcoto.com">mochi</a> is crying.
-    </div>
-    </footer>
-
-    <script src="/js/main.js"></script>
-  </body>
-</html>
+{{ partial "footer.html" . }}

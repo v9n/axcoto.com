@@ -1,0 +1,26 @@
+{{ partial "header.html" . }}
+
+<section class="wrapper">
+
+<div>
+  <h1 id="title">{{ .Title }}</h1>
+  <ul id="list">
+    {{ range .Data.Pages }}
+      <h4>
+        <span><a href="{{ .Permalink }}">{{ .Title }}</a> </span>
+      </h4>
+      <p>
+        <a href="/">Vinh</a> -&nbsp;
+        <time class="pull-right post-list">{{ .Date.Format "Mon, Jan 2, 2006" }}</time>&nbsp;
+        <!-- {{ delimit .Params.tags ", " }} -->
+        {{ range .Params.tags }}
+          <a href="/tags/{{ . | urlize }}">{{ . }}</a>
+        {{ end }}
+      </p>
+    {{ end }}
+  </ul>
+</div>
+
+</section>
+
+{{ partial "footer.html" . }}
