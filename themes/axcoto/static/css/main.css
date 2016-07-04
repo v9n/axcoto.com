@@ -2,3 +2,27 @@
   display: block;
   margin: auto;
 }
+
+a {
+  text-decoration: none;
+
+  transition: color 0.1s linear;
+  transition-property: color;
+  transition-duration: 0.1s;
+  transition-timing-function: linear;
+  transition-delay: initial;
+}
+
+a:hover, code {
+  color: #FA743E;
+}
+
+.nav {
+  float: none;
+  text-align: center;
+}
+
+.nav li {
+  margin: 5px;
+  display: inline-block;
+}
