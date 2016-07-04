@@ -13,8 +13,16 @@ a {
   transition-delay: initial;
 }
 
-a:hover, code {
+a:link, a:visited {
+  color: #9b4dca;
+}
+
+a:hover, code{
   color: #FA743E;
+}
+
+.ta-separator {
+  border-top: .1rem solid #FA743E;
 }
 
 .nav {
