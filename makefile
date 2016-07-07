@@ -1,5 +1,13 @@
+WORKDIR = $(shell pwd)
+CSS_REV = "main-$(shell md5 -r $(WORKDIR)/public/css/main.css | awk '{print $$1}').css"
+
 server:
 	hugo server --theme=axcoto --buildDrafts --watch
+
+asset:
+	cd public/css && pwd && cp main.css "main-$(shell md5 -r $(WORKDIR)/public/css/main.css | awk '{print $$1}').css"
+	echo $(CSS_FILE)
+	find . -name "*.html" -print0 | xargs -0 -I filename /bin/bash -c "echo filename; sed 's/css\/main.css/css\$(CSS_FILE)/g' tmp; mv tmp filename"
 
 build:
 	hugo --theme=axcoto
