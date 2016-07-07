@@ -1,0 +1,36 @@
+.logo {
+  display: block;
+  margin: auto;
+}
+
+a {
+  text-decoration: none;
+
+  transition: color 0.1s linear;
+  transition-property: color;
+  transition-duration: 0.1s;
+  transition-timing-function: linear;
+  transition-delay: initial;
+}
+
+a:link, a:visited {
+  color: #9b4dca;
+}
+
+a:hover, code{
+  color: #FA743E;
+}
+
+.ta-separator {
+  border-top: .1rem solid #FA743E;
+}
+
+.nav {
+  float: none;
+  text-align: center;
+}
+
+.nav li {
+  margin: 5px;
+  display: inline-block;
+}
