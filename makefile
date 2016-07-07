@@ -9,8 +9,10 @@ asset:
 	echo $(CSS_REV)
 	find public -name "*.html" -print0 | xargs -0 -I filename /bin/bash -c "echo filename; sed 's/css\/main.css/css\/$(CSS_REV)/g' filename > tmp; mv tmp filename"
 
-build:
+generate:
 	hugo --theme=axcoto
+
+build: generate asset
 
 build_draft:
 	hugo --theme=axcoto --buildDrafts
