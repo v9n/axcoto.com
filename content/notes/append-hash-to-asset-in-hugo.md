@@ -3,7 +3,7 @@ date = "2016-07-07T17:51:36-07:00"
 draft = false
 title = "Append hash to asset in hugo"
 
-tags = [ "linux", "perf" ]
+tags = [ "hugo", "asset", "perf" ]
 categories = [
   "Development",
   "DevOps",
