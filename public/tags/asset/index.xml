@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Hugo on My New Hugo Site</title>
-    <link>http://axcoto.com/tags/hugo/</link>
-    <description>Recent content in Hugo on My New Hugo Site</description>
+    <title>Asset on My New Hugo Site</title>
+    <link>http://axcoto.com/tags/asset/</link>
+    <description>Recent content in Asset on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 07 Jul 2016 17:51:36 -0700</lastBuildDate>
-    <atom:link href="http://axcoto.com/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://axcoto.com/tags/asset/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Append hash to asset in hugo</title>
@@ -51,16 +51,6 @@ sed on Mac.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;make asset
 &lt;/code&gt;&lt;/pre&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>using letencrypt with haproxy</title>
-      <link>http://axcoto.com/notes/using-letencrypt-with-haproxy/</link>
-      <pubDate>Sun, 03 Jul 2016 23:38:50 -0700</pubDate>
-      
-      <guid>http://axcoto.com/notes/using-letencrypt-with-haproxy/</guid>
-      <description>&lt;p&gt;After setting up hugo, it&amp;rsquo;s will be very cool to use&lt;/p&gt;
 </description>
     </item>
     
