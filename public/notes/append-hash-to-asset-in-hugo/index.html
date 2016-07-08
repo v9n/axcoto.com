@@ -58,28 +58,23 @@
   </p>
 
   <section>
-  <p>Hugo doesn&rsquo;t has a built-in process to put a revision/hash to asset
-when compile from the theme. As the result, the URL statys the
-same and get cache unless we explicitly trigger force refresh. If we
-can append the hash, we can let&rsquo;s cache forever and imrpvoe site
-performance.</p>
+  <p>Hugo doesn&rsquo;t has a built-in process to append a revision/hash to asset
+file name when compile from the theme. As the result, the URL remains
+same and is cached in browser unless we explicitly trigger force refresh. If we
+could append the hash, we can let browser caches it forever hence
+improve site performance.</p>
 
-<p>This is what I setup to achieve this for [axcoto.com] with a simple
+<p>This is what I setup to achieve this for <a href="axcoto.com">axcoto.com</a> with a simple
 bash script. It isn&rsquo;t scale way but it&rsquo;s a good start when we just
 need to whip up something.</p>
 
-<p>Our goal: Let&rsquo;s append a md5 hash of file content in CSS. Let&rsquo;s say
-instead of <code>css/main-4d71a5581e0393ddfc00249554fd4fa9.css</code> we now have <code>css/main-md5-hash-here.css</code>.</p>
+<p>Our goal: instead of <code>css/main-4d71a5581e0393ddfc00249554fd4fa9.css</code> we now have <code>css/main-md5-hash-here.css</code>.</p>
 
-<p>Add this in a <code>makefile</code>:</p>
+<p>I put this in my <code>makefile</code></p>
 
 <pre><code>CSS_DIR = public/css
 CSS_FILE = $(CSS_DIR)/main.css
-CSS_REV = main-$(shell md5 -r $(WORKDIR)/$(CSS_FILE) | awk '{print
-$$1}').css
-
-server:
-hugo server --servertheme=axcoto --buildDrafts --watch
+CSS_REV = main-$(shell md5 -r $(WORKDIR)/$(CSS_FILE) | awk '{print $$1}').css
 
 asset:
   cp $(CSS_FILE) &quot;$(CSS_DIR)/main-$(shell md5 -r $(CSS_FILE) | awk '{print $$1}').css&quot;
@@ -94,6 +89,9 @@ sed on Mac.</p>
 
 <pre><code>make asset
 </code></pre>
+
+<p>It find all <strong>.html</strong> file and replace path of <code>css/main-4d71a5581e0393ddfc00249554fd4fa9.css</code> with the
+hash appended.</p>
 
   </section>
 </div>

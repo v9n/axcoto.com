@@ -15,28 +15,23 @@
       <pubDate>Thu, 07 Jul 2016 17:51:36 -0700</pubDate>
       
       <guid>http://axcoto.com/notes/append-hash-to-asset-in-hugo/</guid>
-      <description>&lt;p&gt;Hugo doesn&amp;rsquo;t has a built-in process to put a revision/hash to asset
-when compile from the theme. As the result, the URL statys the
-same and get cache unless we explicitly trigger force refresh. If we
-can append the hash, we can let&amp;rsquo;s cache forever and imrpvoe site
-performance.&lt;/p&gt;
+      <description>&lt;p&gt;Hugo doesn&amp;rsquo;t has a built-in process to append a revision/hash to asset
+file name when compile from the theme. As the result, the URL remains
+same and is cached in browser unless we explicitly trigger force refresh. If we
+could append the hash, we can let browser caches it forever hence
+improve site performance.&lt;/p&gt;
 
-&lt;p&gt;This is what I setup to achieve this for [axcoto.com] with a simple
+&lt;p&gt;This is what I setup to achieve this for &lt;a href=&#34;axcoto.com&#34;&gt;axcoto.com&lt;/a&gt; with a simple
 bash script. It isn&amp;rsquo;t scale way but it&amp;rsquo;s a good start when we just
 need to whip up something.&lt;/p&gt;
 
-&lt;p&gt;Our goal: Let&amp;rsquo;s append a md5 hash of file content in CSS. Let&amp;rsquo;s say
-instead of &lt;code&gt;css/main.css&lt;/code&gt; we now have &lt;code&gt;css/main-md5-hash-here.css&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Our goal: instead of &lt;code&gt;css/main.css&lt;/code&gt; we now have &lt;code&gt;css/main-md5-hash-here.css&lt;/code&gt;.&lt;/p&gt;
 
-&lt;p&gt;Add this in a &lt;code&gt;makefile&lt;/code&gt;:&lt;/p&gt;
+&lt;p&gt;I put this in my &lt;code&gt;makefile&lt;/code&gt;&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;CSS_DIR = public/css
 CSS_FILE = $(CSS_DIR)/main.css
-CSS_REV = main-$(shell md5 -r $(WORKDIR)/$(CSS_FILE) | awk &#39;{print
-$$1}&#39;).css
-
-server:
-hugo server --servertheme=axcoto --buildDrafts --watch
+CSS_REV = main-$(shell md5 -r $(WORKDIR)/$(CSS_FILE) | awk &#39;{print $$1}&#39;).css
 
 asset:
   cp $(CSS_FILE) &amp;quot;$(CSS_DIR)/main-$(shell md5 -r $(CSS_FILE) | awk &#39;{print $$1}&#39;).css&amp;quot;
@@ -51,6 +46,9 @@ sed on Mac.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;make asset
 &lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;It find all &lt;strong&gt;.html&lt;/strong&gt; file and replace path of &lt;code&gt;css/main.css&lt;/code&gt; with the
+hash appended.&lt;/p&gt;
 </description>
     </item>
     
