@@ -10,29 +10,24 @@ categories = [
 ]
 +++
 
-Hugo doesn't has a built-in process to put a revision/hash to asset
-when compile from the theme. As the result, the URL statys the
-same and get cache unless we explicitly trigger force refresh. If we
-can append the hash, we can let's cache forever and imrpvoe site
-performance.
+Hugo doesn't has a built-in process to append a revision/hash to asset
+file name when compile from the theme. As the result, the URL remains
+same and is cached in browser unless we explicitly trigger force refresh. If we
+could append the hash, we can let browser caches it forever hence
+improve site performance.
 
-This is what I setup to achieve this for [axcoto.com] with a simple
+This is what I setup to achieve this for [axcoto.com](axcoto.com) with a simple
 bash script. It isn't scale way but it's a good start when we just
 need to whip up something.
 
-Our goal: Let's append a md5 hash of file content in CSS. Let's say
-instead of `css/main.css` we now have `css/main-md5-hash-here.css`.
+Our goal: instead of `css/main.css` we now have `css/main-md5-hash-here.css`.
 
-Add this in a `makefile`:
+I put this in my `makefile`
 
 ```
 CSS_DIR = public/css
 CSS_FILE = $(CSS_DIR)/main.css
-CSS_REV = main-$(shell md5 -r $(WORKDIR)/$(CSS_FILE) | awk '{print
-$$1}').css
-
-server:
-hugo server --servertheme=axcoto --buildDrafts --watch
+CSS_REV = main-$(shell md5 -r $(WORKDIR)/$(CSS_FILE) | awk '{print $$1}').css
 
 asset:
   cp $(CSS_FILE) "$(CSS_DIR)/main-$(shell md5 -r $(CSS_FILE) | awk '{print $$1}').css"
@@ -48,3 +43,6 @@ Now, after generate content, we simply run:
 ```
 make asset
 ```
+
+It find all **.html** file and replace path of `css/main.css` with the
+hash appended.
