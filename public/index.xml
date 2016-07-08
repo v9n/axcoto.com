@@ -6,8 +6,53 @@
     <description>Recent content on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 04 Jul 2016 00:09:09 -0700</lastBuildDate>
+    <lastBuildDate>Thu, 07 Jul 2016 17:51:36 -0700</lastBuildDate>
     <atom:link href="http://axcoto.com/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Append hash to asset in hugo</title>
+      <link>http://axcoto.com/notes/append-hash-to-asset-in-hugo/</link>
+      <pubDate>Thu, 07 Jul 2016 17:51:36 -0700</pubDate>
+      
+      <guid>http://axcoto.com/notes/append-hash-to-asset-in-hugo/</guid>
+      <description>&lt;p&gt;Hugo doesn&amp;rsquo;t has a built-in process to put a revision/hash to asset
+when compile from the theme. As the result, the URL statys the
+same and get cache unless we explicitly trigger force refresh. If we
+can append the hash, we can let&amp;rsquo;s cache forever and imrpvoe site
+performance.&lt;/p&gt;
+
+&lt;p&gt;This is what I setup to achieve this for [axcoto.com] with a simple
+bash script. It isn&amp;rsquo;t scale way but it&amp;rsquo;s a good start when we just
+need to whip up something.&lt;/p&gt;
+
+&lt;p&gt;Our goal: Let&amp;rsquo;s append a md5 hash of file content in CSS. Let&amp;rsquo;s say
+instead of &lt;code&gt;css/main.css&lt;/code&gt; we now have &lt;code&gt;css/main-md5-hash-here.css&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Add this in a &lt;code&gt;makefile&lt;/code&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;CSS_DIR = public/css
+CSS_FILE = $(CSS_DIR)/main.css
+CSS_REV = main-$(shell md5 -r $(WORKDIR)/$(CSS_FILE) | awk &#39;{print
+$$1}&#39;).css
+
+server:
+hugo server --servertheme=axcoto --buildDrafts --watch
+
+asset:
+  cp $(CSS_FILE) &amp;quot;$(CSS_DIR)/main-$(shell md5 -r $(CSS_FILE) | awk &#39;{print $$1}&#39;).css&amp;quot;
+  find public -name &amp;quot;*.html&amp;quot; -print0 | xargs -0 -I filename /bin/bashh -c &amp;quot;echo filename; sed &#39;s/css\/main.css/css\/$(CSS_REV)/g&#39; filename &amp;gt; tmp; mv tmp filename&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;We simply copy the css file and append the &lt;code&gt;md5&lt;/code&gt; hash. We have to
+redirect output of &lt;code&gt;sed&lt;/code&gt; since I don&amp;rsquo;t know a way to replace inline with
+sed on Mac.&lt;/p&gt;
+
+&lt;p&gt;Now, after generate content, we simply run:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;make asset
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
     
     <item>
       <title>simply rethinkdb</title>

@@ -41,38 +41,59 @@
 <section class="wrapper">
 
 <div>
-  <h1 id="title">Perf</h1>
-  <ul id="list">
-    
-      <h4>
-        <span><a href="http://axcoto.com/notes/append-hash-to-asset-in-hugo/">Append hash to asset in hugo</a> </span>
-      </h4>
-      <p>
-        <a href="/">Vinh</a> -&nbsp;
-        <time class="pull-right post-list">Thu, Jul 7, 2016</time>&nbsp;
-        
-        
-          <a href="/tags/linux">linux</a>
-        
-          <a href="/tags/perf">perf</a>
-        
-      </p>
-    
-      <h4>
-        <span><a href="http://axcoto.com/notes/understand-linux-performance/">understand linux performance</a> </span>
-      </h4>
-      <p>
-        <a href="/">Vinh</a> -&nbsp;
-        <time class="pull-right post-list">Sun, Jul 3, 2016</time>&nbsp;
-        
-        
-          <a href="/tags/linux">linux</a>
-        
-          <a href="/tags/perf">perf</a>
-        
-      </p>
-    
-  </ul>
+  <h1 id="title">
+    <span><a href="http://axcoto.com/notes/append-hash-to-asset-in-hugo/">Append hash to asset in hugo</a> </span>
+  </h1>
+  <p>
+  <a href="/">Vinh</a> -&nbsp;
+  <time class="pull-right post-list">Thu, Jul 7, 2016</time>&nbsp;
+  
+  
+  <a href="/tags/linux">linux</a>
+  
+  <a href="/tags/perf">perf</a>
+  
+  </p>
+
+  <section>
+  <p>Hugo doesn&rsquo;t has a built-in process to put a revision/hash to asset
+when compile from the theme. As the result, the URL statys the
+same and get cache unless we explicitly trigger force refresh. If we
+can append the hash, we can let&rsquo;s cache forever and imrpvoe site
+performance.</p>
+
+<p>This is what I setup to achieve this for [axcoto.com] with a simple
+bash script. It isn&rsquo;t scale way but it&rsquo;s a good start when we just
+need to whip up something.</p>
+
+<p>Our goal: Let&rsquo;s append a md5 hash of file content in CSS. Let&rsquo;s say
+instead of <code>css/main-4d71a5581e0393ddfc00249554fd4fa9.css</code> we now have <code>css/main-md5-hash-here.css</code>.</p>
+
+<p>Add this in a <code>makefile</code>:</p>
+
+<pre><code>CSS_DIR = public/css
+CSS_FILE = $(CSS_DIR)/main.css
+CSS_REV = main-$(shell md5 -r $(WORKDIR)/$(CSS_FILE) | awk '{print
+$$1}').css
+
+server:
+hugo server --servertheme=axcoto --buildDrafts --watch
+
+asset:
+  cp $(CSS_FILE) &quot;$(CSS_DIR)/main-$(shell md5 -r $(CSS_FILE) | awk '{print $$1}').css&quot;
+  find public -name &quot;*.html&quot; -print0 | xargs -0 -I filename /bin/bashh -c &quot;echo filename; sed 's/css\/main.css/css\/$(CSS_REV)/g' filename &gt; tmp; mv tmp filename&quot;
+</code></pre>
+
+<p>We simply copy the css file and append the <code>md5</code> hash. We have to
+redirect output of <code>sed</code> since I don&rsquo;t know a way to replace inline with
+sed on Mac.</p>
+
+<p>Now, after generate content, we simply run:</p>
+
+<pre><code>make asset
+</code></pre>
+
+  </section>
 </div>
 
 </section>
