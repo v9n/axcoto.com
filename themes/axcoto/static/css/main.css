@@ -31,6 +31,6 @@ a:hover, code{
 }
 
 .nav li {
-  margin: 5px;
+  margin: 5px 10px;
   display: inline-block;
 }
