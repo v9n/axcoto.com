@@ -40,3 +40,17 @@ User.without(:relation).find(user_id)
 The lession is that we should always benchmark code instead of blindly
 guessing which parts of code is slow. If I benchmark them right at the
 beginning I would have known exactly the problem much quicker.
+
+The second thing is default value. Value is evaluated instantly at run
+time, when the file is loaded if the value wasn't a closure.
+
+Let's say you have this:
+
+```
+field :foo, type: Time, default: Time.now.utc
+```
+
+Now, the value of everydocument will be exactly same value at the time
+the file is loaded and evaluated by RubyVM.
+
+The right way to do this is using a callback.
