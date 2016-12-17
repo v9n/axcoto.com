@@ -2,12 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://axcoto.com/</loc>
-    <lastmod>2016-07-07T17:51:36-07:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>http://axcoto.com/notes/append-hash-to-asset-in-hugo/</loc>
     <lastmod>2016-07-07T17:51:36-07:00</lastmod>
   </url>
@@ -25,6 +19,118 @@
   <url>
     <loc>http://axcoto.com/notes/using-letencrypt-with-haproxy/</loc>
     <lastmod>2016-07-03T23:38:50-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://axcoto.com/tags/asset/</loc>
+    <lastmod>2016-07-07T17:51:36-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://axcoto.com/categories/book/</loc>
+    <lastmod>2016-07-04T00:09:09-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://axcoto.com/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://axcoto.com/tags/database/</loc>
+    <lastmod>2016-07-04T00:09:09-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://axcoto.com/categories/development/</loc>
+    <lastmod>2016-07-07T17:51:36-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://axcoto.com/categories/devops/</loc>
+    <lastmod>2016-07-07T17:51:36-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://axcoto.com/tags/haproxy/</loc>
+    <lastmod>2016-07-03T23:38:50-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://axcoto.com/tags/hugo/</loc>
+    <lastmod>2016-07-07T17:51:36-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://axcoto.com/categories/learn/</loc>
+    <lastmod>2016-07-04T00:09:09-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://axcoto.com/tags/letencrypt/</loc>
+    <lastmod>2016-07-03T23:38:50-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://axcoto.com/tags/linux/</loc>
+    <lastmod>2016-07-03T23:55:36-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://axcoto.com/</loc>
+    <lastmod>2016-07-07T17:51:36-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://axcoto.com/tags/nosql/</loc>
+    <lastmod>2016-07-04T00:09:09-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://axcoto.com/notes/</loc>
+    <lastmod>2016-07-07T17:51:36-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://axcoto.com/tags/perf/</loc>
+    <lastmod>2016-07-07T17:51:36-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://axcoto.com/tags/rethinkdb/</loc>
+    <lastmod>2016-07-04T00:09:09-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://axcoto.com/shop/</loc>
+    <lastmod>2016-07-04T00:09:09-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://axcoto.com/tags/ssl/</loc>
+    <lastmod>2016-07-03T23:38:50-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://axcoto.com/tags/</loc>
+    <priority>0</priority>
   </url>
   
 </urlset>

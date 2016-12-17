@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Shops on My New Hugo Site</title>
-    <link>http://axcoto.com/shop/</link>
+    <link>http://axcoto.com/shop/index.xml</link>
     <description>Recent content in Shops on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>

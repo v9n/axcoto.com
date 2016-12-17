@@ -2,11 +2,10 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Database on My New Hugo Site</title>
-    <link>http://axcoto.com/tags/database/</link>
+    <link>http://axcoto.com/tags/database/index.xml</link>
     <description>Recent content in Database on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 04 Jul 2016 00:09:09 -0700</lastBuildDate>
     <atom:link href="http://axcoto.com/tags/database/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
