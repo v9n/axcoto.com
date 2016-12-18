@@ -3,6 +3,10 @@ title = "Using btrfs with docker"
 draft = false
 date = "2016-12-16T19:54:58-08:00"
 
+tags = [ "docker", "storage", "btrfs" ]
+categories = [
+  "DevOps",
+]
 +++
 
 I recently have some issue with docker and btrfs which makes me want to
