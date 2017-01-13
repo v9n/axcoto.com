@@ -1,13 +1,18 @@
 +++
 date = "2016-12-02T20:30:19-08:00"
-draft = true
+draft = false
 title = "brew pkg config"
 
+tags = [ "mac", "brew" ]
+categories = [
+  "Development",
+]
 +++
 
 The other day I want to upgrade NodeJS with homebrew. It complains about
 `pkg-config` linking. I tried to link it, remove it, reinstall. All is
-fine. I can see pkg-config in my path. 
+fine. I can see pkg-config in my path. But it keeps complaining about
+`pkg-config` missing.
 
 So here is how I fix it.
 
@@ -346,7 +351,7 @@ I then install package:
 brew install dbus gflags gperftools libssh libtermkey libuv libvterm msgpack net-snmp qt5 shared-mime-info unibilium webp
 ```
 
-But still failing. It seems I'm a horrible broken state.
+But still failing. It seems I'm in a horrible broken state.
 
 At this point, I try to cd into `/usr/local/` and realize I don't have a
 `.git` folder here. I remeber some change about homebrew the other day.
@@ -384,12 +389,30 @@ lrwxr-xr-x     1 kureikain  admin     24 Sep  2  2015 var -> /Volumes/nyanko/bre
 
 I have so much data on our local `mysql`, `mongodb`, `elasticsearch` and
 I have to put them into that folder and do a symlink, which turns out a
-bad idea because `homebre` seems doesnt play nice with symlink.
+bad idea because `homebrew` seems not play nice with symlink.
 
 I unlink and move everything back and stuff started to work again. After
 thing started to work, I go into my `/Volumes/nyanko/brew/var` and
 symlink everything back like this:
 
-I dont' know but I just feel like homebrew is too much trouble to use.
+```
+lrwxr-xr-x   1 kureikain  staff    17 Jan  5 09:36 Cellar -> /usr/local/Cellar
+lrwxr-xr-x   1 kureikain  staff    21 Dec 21 11:47 Frameworks -> /usr/local/Frameworks
+lrwxr-xr-x   1 kureikain  staff    19 Dec 21 11:47 Homebrew -> /usr/local/Homebrew
+lrwxr-xr-x   1 kureikain  staff    18 Dec 21 11:47 MacGPG2 -> /usr/local/MacGPG2
+lrwxr-xr-x   1 kureikain  staff    14 Dec 21 11:47 aws -> /usr/local/aws
+lrwxr-xr-x   1 kureikain  staff    14 Dec 21 11:47 bin -> /usr/local/bin
+lrwxr-xr-x   1 kureikain  staff    14 Dec 21 11:47 etc -> /usr/local/etc
+lrwxr-xr-x   1 kureikain  staff    18 Dec 21 11:47 include -> /usr/local/include
+lrwxr-xr-x   1 kureikain  staff    14 Dec 21 11:47 lib -> /usr/local/lib
+lrwxr-xr-x   1 kureikain  staff    14 Dec 21 11:47 opt -> /usr/local/opt
+lrwxr-xr-x   1 kureikain  staff    15 Dec 21 11:47 sbin -> /usr/local/sbin
+lrwxr-xr-x   1 kureikain  staff    16 Dec 21 11:47 share -> /usr/local/share
+lrwxr-xr-x   1 kureikain  staff    18 Dec 21 11:47 texlive -> /usr/local/texlive
+drwxr-xr-x  15 kureikain  staff   544 Dec 21 10:37 var
+```
+
+I feel like homebrew is too much trouble to use.
 When it's work, it works great but when it doesn't, it's horrible. I'm
-not sure if I can do something better but I want to try out an idea.
+not sure if I can do something better but I want to try out an idea that
+I have in mind. Stay tune.
