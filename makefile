@@ -32,4 +32,4 @@ push_subtree:
 deploy: push_subtree
 
 ssh_deploy:
-	ssh kurei@noty "bash deploy-axcoto.sh"
+	ssh axcoto "bash deploy-axcoto.sh"
