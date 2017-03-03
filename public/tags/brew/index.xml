@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Development on My New Hugo Site</title>
-    <link>http://axcoto.com/categories/development/index.xml</link>
-    <description>Recent content in Development on My New Hugo Site</description>
+    <title>Brew on My New Hugo Site</title>
+    <link>http://axcoto.com/tags/brew/index.xml</link>
+    <description>Recent content in Brew on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <atom:link href="http://axcoto.com/categories/development/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://axcoto.com/tags/brew/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>brew pkg config</title>
@@ -414,71 +414,6 @@ drwxr-xr-x  15 kureikain  staff   544 Dec 21 10:37 var
 When it&amp;rsquo;s work, it works great but when it doesn&amp;rsquo;t, it&amp;rsquo;s horrible. I&amp;rsquo;m
 not sure if I can do something better but I want to try out an idea that
 I have in mind. Stay tune.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Append hash to asset in hugo</title>
-      <link>http://axcoto.com/notes/append-hash-to-asset-in-hugo/</link>
-      <pubDate>Thu, 07 Jul 2016 17:51:36 -0700</pubDate>
-      
-      <guid>http://axcoto.com/notes/append-hash-to-asset-in-hugo/</guid>
-      <description>&lt;p&gt;Hugo doesn&amp;rsquo;t has a built-in process to append a revision/hash to asset
-file name when compile from the theme. As the result, the URL remains
-same and is cached in browser unless we explicitly trigger force refresh. If we
-could append the hash, we can let browser caches it forever hence
-improve site performance.&lt;/p&gt;
-
-&lt;p&gt;This is what I setup to achieve this for &lt;a href=&#34;axcoto.com&#34;&gt;axcoto.com&lt;/a&gt; with a simple
-bash script. It isn&amp;rsquo;t scale way but it&amp;rsquo;s a good start when we just
-need to whip up something.&lt;/p&gt;
-
-&lt;p&gt;Our goal: instead of &lt;code&gt;css/main.css&lt;/code&gt; we now have &lt;code&gt;css/main-md5-hash-here.css&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;I put this in my &lt;code&gt;makefile&lt;/code&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;CSS_DIR = public/css
-CSS_FILE = $(CSS_DIR)/main.css
-CSS_REV = main-$(shell md5 -r $(WORKDIR)/$(CSS_FILE) | awk &#39;{print $$1}&#39;).css
-
-asset:
-  cp $(CSS_FILE) &amp;quot;$(CSS_DIR)/main-$(shell md5 -r $(CSS_FILE) | awk &#39;{print $$1}&#39;).css&amp;quot;
-  find public -name &amp;quot;*.html&amp;quot; -print0 | xargs -0 -I filename /bin/bashh -c &amp;quot;echo filename; sed &#39;s/css\/main.css/css\/$(CSS_REV)/g&#39; filename &amp;gt; tmp; mv tmp filename&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;We simply copy the css file and append the &lt;code&gt;md5&lt;/code&gt; hash. We have to
-redirect output of &lt;code&gt;sed&lt;/code&gt; since I don&amp;rsquo;t know a way to replace inline with
-sed on Mac.&lt;/p&gt;
-
-&lt;p&gt;Now, after generate content, we simply run:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;make asset
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;It find all &lt;strong&gt;.html&lt;/strong&gt; file and replace path of &lt;code&gt;css/main.css&lt;/code&gt; with the
-hash appended.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>understand linux performance</title>
-      <link>http://axcoto.com/notes/understand-linux-performance/</link>
-      <pubDate>Sun, 03 Jul 2016 23:55:36 -0700</pubDate>
-      
-      <guid>http://axcoto.com/notes/understand-linux-performance/</guid>
-      <description>&lt;p&gt;Linux gives many tool to represent how well the system is perform. The
-issue is the output of those tool is hard to understand. In this note,
-let&amp;rsquo;s dive into some metric from default system.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>using letencrypt with haproxy</title>
-      <link>http://axcoto.com/notes/using-letencrypt-with-haproxy/</link>
-      <pubDate>Sun, 03 Jul 2016 23:38:50 -0700</pubDate>
-      
-      <guid>http://axcoto.com/notes/using-letencrypt-with-haproxy/</guid>
-      <description>&lt;p&gt;After setting up hugo, it&amp;rsquo;s will be very cool to use&lt;/p&gt;
 </description>
     </item>
     

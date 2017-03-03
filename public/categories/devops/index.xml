@@ -9,6 +9,36 @@
     <atom:link href="http://axcoto.com/categories/devops/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Using btrfs with docker</title>
+      <link>http://axcoto.com/notes/docker-btrfs/</link>
+      <pubDate>Fri, 16 Dec 2016 19:54:58 -0800</pubDate>
+      
+      <guid>http://axcoto.com/notes/docker-btrfs/</guid>
+      <description>&lt;p&gt;I recently have some issue with docker and btrfs which makes me want to
+learn more about it. The reason I have used &lt;code&gt;btrfs&lt;/code&gt; is to solve some
+issues with device mapper.&lt;/p&gt;
+
+&lt;p&gt;I use docker with &lt;code&gt;btrfs&lt;/code&gt;. Recently, for some reasons the
+&lt;code&gt;/var/lib/docker&lt;/code&gt; grow to 100% disk space and docker unable to start
+with some error about opening db file or so.&lt;/p&gt;
+
+&lt;p&gt;I tried to take a snapshot of EBS volume and resize it with &lt;code&gt;resize2fs&lt;/code&gt;
+as I always do when resizing volume on EBS. But turning out that doesn&amp;rsquo;t
+work due to &lt;code&gt;btrfs&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Luckily I found an much nicer way to increase. Simply add a new volume,
+then using this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo btrfs device add -f /dev/xvdc /var/lib/docker
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This adds extra space to &lt;code&gt;/var/lib/docker&lt;/code&gt;. At least, this will make
+docker start backup and I can backup my docker image or inspect/debug
+some existing container.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Append hash to asset in hugo</title>
       <link>http://axcoto.com/notes/append-hash-to-asset-in-hugo/</link>
       <pubDate>Thu, 07 Jul 2016 17:51:36 -0700</pubDate>
