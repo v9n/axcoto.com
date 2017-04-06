@@ -3,6 +3,11 @@ date = "2017-04-05T11:36:43-07:00"
 title = "mongodb change replica set hostname"
 draft = false
 
+tags = [ "mongodb" ]
+categories = [
+  "DevOps",
+]
+
 +++
 
 MongoDB by default take the hostname when creating replica set. In a
