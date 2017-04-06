@@ -9,6 +9,27 @@
     <atom:link href="http://axcoto.com/categories/devops/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>mongodb change replica set hostname</title>
+      <link>http://axcoto.com/notes/mongodb-change-replica-set-hostname/</link>
+      <pubDate>Wed, 05 Apr 2017 11:36:43 -0700</pubDate>
+      
+      <guid>http://axcoto.com/notes/mongodb-change-replica-set-hostname/</guid>
+      <description>&lt;p&gt;MongoDB by default take the hostname when creating replica set. In a
+replica set, the node communicate by that hostname. If the hostname
+wasn&amp;rsquo;t resolveable then they will not be able to talk to each other.
+A way to solve them is using ip address or some public/private DNS
+as hostname.&lt;/p&gt;
+
+&lt;p&gt;Changing hostname is easy, by following these steps.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;cfg = rs.conf();
+cfg.members[0].host = &amp;quot;newhostname.tld:27017&amp;quot;;
+rs.reconfig(cfg);
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Using btrfs with docker</title>
       <link>http://axcoto.com/notes/docker-btrfs/</link>
       <pubDate>Fri, 16 Dec 2016 19:54:58 -0800</pubDate>

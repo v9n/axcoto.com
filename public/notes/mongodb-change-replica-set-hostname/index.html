@@ -37,68 +37,33 @@
 <section class="wrapper">
 
 <div>
-  <h1 id="title">Devops</h1>
-  <ul id="list">
-    
-      <h4>
-        <span><a href="http://axcoto.com/notes/mongodb-change-replica-set-hostname/">mongodb change replica set hostname</a> </span>
-      </h4>
-      <p>
-        <a href="/">Vinh</a> -&nbsp;
-        <time class="pull-right post-list">Wed, Apr 5, 2017</time>&nbsp;
-        
-        
-          <a href="/tags/mongodb">mongodb</a>
-        
-      </p>
-    
-      <h4>
-        <span><a href="http://axcoto.com/notes/docker-btrfs/">Using btrfs with docker</a> </span>
-      </h4>
-      <p>
-        <a href="/">Vinh</a> -&nbsp;
-        <time class="pull-right post-list">Fri, Dec 16, 2016</time>&nbsp;
-        
-        
-          <a href="/tags/docker">docker</a>
-        
-          <a href="/tags/storage">storage</a>
-        
-          <a href="/tags/btrfs">btrfs</a>
-        
-      </p>
-    
-      <h4>
-        <span><a href="http://axcoto.com/notes/append-hash-to-asset-in-hugo/">Append hash to asset in hugo</a> </span>
-      </h4>
-      <p>
-        <a href="/">Vinh</a> -&nbsp;
-        <time class="pull-right post-list">Thu, Jul 7, 2016</time>&nbsp;
-        
-        
-          <a href="/tags/hugo">hugo</a>
-        
-          <a href="/tags/asset">asset</a>
-        
-          <a href="/tags/perf">perf</a>
-        
-      </p>
-    
-      <h4>
-        <span><a href="http://axcoto.com/notes/understand-linux-performance/">understand linux performance</a> </span>
-      </h4>
-      <p>
-        <a href="/">Vinh</a> -&nbsp;
-        <time class="pull-right post-list">Sun, Jul 3, 2016</time>&nbsp;
-        
-        
-          <a href="/tags/linux">linux</a>
-        
-          <a href="/tags/perf">perf</a>
-        
-      </p>
-    
-  </ul>
+  <h1 id="title">
+    <span><a href="http://axcoto.com/notes/mongodb-change-replica-set-hostname/">mongodb change replica set hostname</a> </span>
+  </h1>
+  <p>
+  <a href="/">Vinh</a> -&nbsp;
+  <time class="pull-right post-list">Wed, Apr 5, 2017</time>&nbsp;
+  
+  
+  <a href="/tags/mongodb">mongodb</a>
+  
+  </p>
+
+  <section>
+  <p>MongoDB by default take the hostname when creating replica set. In a
+replica set, the node communicate by that hostname. If the hostname
+wasn&rsquo;t resolveable then they will not be able to talk to each other.
+A way to solve them is using ip address or some public/private DNS
+as hostname.</p>
+
+<p>Changing hostname is easy, by following these steps.</p>
+
+<pre><code>cfg = rs.conf();
+cfg.members[0].host = &quot;newhostname.tld:27017&quot;;
+rs.reconfig(cfg);
+</code></pre>
+
+  </section>
 </div>
 
 </section>
