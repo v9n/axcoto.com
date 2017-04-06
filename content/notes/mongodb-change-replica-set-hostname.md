@@ -1,7 +1,7 @@
 +++
 date = "2017-04-05T11:36:43-07:00"
 title = "mongodb change replica set hostname"
-draft = true
+draft = false
 
 +++
 
