@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Axcoto - DevOps and Development Services</title>
+    <meta name="description" content="Axcoto is a free lancer service focus in web&amp; mobile development. I also sell ready-to-use code library such as WordPress plugin, jQuery plugin, custom Rails/PHP apps">
+    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/css/cutestrap.min.css">
+    <link rel="stylesheet" href="/css/main-4d71a5581e0393ddfc00249554fd4fa9.css">
+    <link rel="canonical" href="https://axcoto.com/">
+    <link rel="alternate" type="application/rss+xml" title="Axcoto" href="https://axcoto.com/feed.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/default.min.css">
+  </head>
+  <body>
+
+    <header class="wrapper-large ta-center">
+    <h1>
+      <a href="/"><img src="/images/logo50.jpg" class="logo" alt="Axcoto" /></a>
+    </h1>
+    <p>I'm Vinh, a husband, father&amp; programing enthusiat</p>
+    
+    <ul class="nav">
+      <li><a href="/#about">About</a>
+      <li><a href="/#service">Service</a></li>
+      <li><a href="/shop">Shop</a></li>
+      <li><a href="/#work">Works</a></li>
+      <li><a href="/notes">Notes</a></li>
+      <li><a href="https://yeo.space" target="_blank">Hire me(Available)</a></li>
+    </ul>
+    </header>
+
+
+<section class="wrapper">
+
+<div>
+  <h1 id="title">
+    <span><a href="http://axcoto.com/notes/format-date-with-linux/">Format date with linux</a> </span>
+  </h1>
+  <p>
+  <a href="/">Vinh</a> -&nbsp;
+  <time class="pull-right post-list">Sun, Apr 23, 2017</time>&nbsp;
+  
+  
+  <a href="/tags/linux">linux</a>
+  
+  <a href="/tags/date">date</a>
+  
+  <a href="/tags/day">day</a>
+  
+  <a href="/tags/bash">bash</a>
+  
+  <a href="/tags/linux-daily">linux-daily</a>
+  
+  </p>
+
+  <section>
+  <p>Time is part of DevOps life. We use timestampt everywhere, in backup, in
+cronjob, compare different between two times. However, working with
+date/time in bash maybe a bit cumbersome.</p>
+
+<p>On Bash, lots of time, we have to rely on an external utility and use
+the output to feed into another variable. That&rsquo;s Linux way.</p>
+
+<p>The command we are looking at is <code>date</code>. It&rsquo;s extremely powerful.</p>
+
+<p>The most basic use is just call it:</p>
+
+<pre><code>$ date
+Sun Apr 23 08:27:40 UTC 2017
+</code></pre>
+
+<p>This is useless most of time. We can format it by passing the format
+string as firt argument.</p>
+
+<p>Format is to epoch</p>
+
+<pre><code>$ date +%s
+1492936099
+</code></pre>
+
+<p>Format it as we always do with our language:</p>
+
+<pre><code>$ date +%Y-%m-%d
+2017-04-23
+$ date +%D
+04/23/17
+$ date &quot;+%Y-%m-%D %H:%M:%S&quot;
+2017-04-04/23/17 08:30:08
+</code></pre>
+
+<p>What happen if we want to get yesterday time, tomorrow, 5 hours ago, as
+we always do in Rails</p>
+
+<pre><code>5.minutes.ago
+</code></pre>
+
+<p>Or when we want to format a specificed date, not current day time. We
+can pass an <code>--date</code> parameter:</p>
+
+<pre><code>$ date &quot;+%Y-%m-%D %H:%M:%S&quot; --date=now
+2017-04-04/23/17 08:31:51
+</code></pre>
+
+<p>Let&rsquo;s do time travel:</p>
+
+<pre><code>$ date &quot;+%Y-%m-%D %H:%M:%S&quot; --date=tomorrow
+2017-04-04/24/17 08:32:02
+
+$ date &quot;+%Y-%m-%D %H:%M:%S&quot; --date=yesterday
+2017-04-04/22/17 08:32:06
+</code></pre>
+
+<p>Back to our Rails code, we love <code>ago</code>, <code>from now</code> etc. We can do that
+with date as well. By default, it advance time into future, unless we
+specifiy <code>ago</code>. Such as</p>
+
+<pre><code>$ date &quot;+%Y-%m-%D %H:%M:%S&quot; --date='5 minutes ago'
+2017-04-04/23/17 08:29:48
+$ date &quot;+%Y-%m-%D %H:%M:%S&quot; --date='1 hours ago'
+2017-04-04/23/17 07:35:14
+$ date &quot;+%Y-%m-%D %H:%M:%S&quot; --date='1 hours'
+2017-04-04/23/17 09:35:25
+</code></pre>
+
+<p>It&rsquo;s suprisingly very powerful and can parse almost anything</p>
+
+<pre><code>$ date &quot;+%Y-%m-%D %H:%M:%S&quot; --date='next monday'
+2017-04-04/24/17 00:00:00
+$ date &quot;+%Y-%m-%D %H:%M:%S&quot; --date='next monday 5:00'
+2017-04-04/24/17 05:00:00
+$ date &quot;+%Y-%m-%D %H:%M:%S&quot; --date='next monday 5:00pm'
+2017-04-04/24/17 17:00:00
+</code></pre>
+
+<p>And finally, don&rsquo;t forgot to</p>
+
+<pre><code>man date
+</code></pre>
+
+<p>to learn more about what it can do.</p>
+
+  </section>
+</div>
+
+</section>
+
+    <footer class="grid wrapper">
+    <div class="copyright">
+      Axcoto &copy;2017.
+    </div>
+    <div class="ta-right">
+      Made with happiness when <a href="https://axcoto.com" target="https://mochi.axcoto.com">mochi</a> is crying.
+    </div>
+    </footer>
+
+    <script src="/js/main.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  </body>
+</html>
+

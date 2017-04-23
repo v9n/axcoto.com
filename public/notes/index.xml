@@ -6,8 +6,101 @@
     <description>Recent content in Notes on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 05 Apr 2017 11:36:43 -0700</lastBuildDate>
+    <lastBuildDate>Sun, 23 Apr 2017 01:23:48 -0700</lastBuildDate>
     <atom:link href="http://axcoto.com/notes/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Format date with linux</title>
+      <link>http://axcoto.com/notes/format-date-with-linux/</link>
+      <pubDate>Sun, 23 Apr 2017 01:23:48 -0700</pubDate>
+      
+      <guid>http://axcoto.com/notes/format-date-with-linux/</guid>
+      <description>&lt;p&gt;Time is part of DevOps life. We use timestampt everywhere, in backup, in
+cronjob, compare different between two times. However, working with
+date/time in bash maybe a bit cumbersome.&lt;/p&gt;
+
+&lt;p&gt;On Bash, lots of time, we have to rely on an external utility and use
+the output to feed into another variable. That&amp;rsquo;s Linux way.&lt;/p&gt;
+
+&lt;p&gt;The command we are looking at is &lt;code&gt;date&lt;/code&gt;. It&amp;rsquo;s extremely powerful.&lt;/p&gt;
+
+&lt;p&gt;The most basic use is just call it:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ date
+Sun Apr 23 08:27:40 UTC 2017
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This is useless most of time. We can format it by passing the format
+string as firt argument.&lt;/p&gt;
+
+&lt;p&gt;Format is to epoch&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ date +%s
+1492936099
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Format it as we always do with our language:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ date +%Y-%m-%d
+2017-04-23
+$ date +%D
+04/23/17
+$ date &amp;quot;+%Y-%m-%D %H:%M:%S&amp;quot;
+2017-04-04/23/17 08:30:08
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;What happen if we want to get yesterday time, tomorrow, 5 hours ago, as
+we always do in Rails&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;5.minutes.ago
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Or when we want to format a specificed date, not current day time. We
+can pass an &lt;code&gt;--date&lt;/code&gt; parameter:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ date &amp;quot;+%Y-%m-%D %H:%M:%S&amp;quot; --date=now
+2017-04-04/23/17 08:31:51
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Let&amp;rsquo;s do time travel:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ date &amp;quot;+%Y-%m-%D %H:%M:%S&amp;quot; --date=tomorrow
+2017-04-04/24/17 08:32:02
+
+$ date &amp;quot;+%Y-%m-%D %H:%M:%S&amp;quot; --date=yesterday
+2017-04-04/22/17 08:32:06
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Back to our Rails code, we love &lt;code&gt;ago&lt;/code&gt;, &lt;code&gt;from now&lt;/code&gt; etc. We can do that
+with date as well. By default, it advance time into future, unless we
+specifiy &lt;code&gt;ago&lt;/code&gt;. Such as&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ date &amp;quot;+%Y-%m-%D %H:%M:%S&amp;quot; --date=&#39;5 minutes ago&#39;
+2017-04-04/23/17 08:29:48
+$ date &amp;quot;+%Y-%m-%D %H:%M:%S&amp;quot; --date=&#39;1 hours ago&#39;
+2017-04-04/23/17 07:35:14
+$ date &amp;quot;+%Y-%m-%D %H:%M:%S&amp;quot; --date=&#39;1 hours&#39;
+2017-04-04/23/17 09:35:25
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;It&amp;rsquo;s suprisingly very powerful and can parse almost anything&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ date &amp;quot;+%Y-%m-%D %H:%M:%S&amp;quot; --date=&#39;next monday&#39;
+2017-04-04/24/17 00:00:00
+$ date &amp;quot;+%Y-%m-%D %H:%M:%S&amp;quot; --date=&#39;next monday 5:00&#39;
+2017-04-04/24/17 05:00:00
+$ date &amp;quot;+%Y-%m-%D %H:%M:%S&amp;quot; --date=&#39;next monday 5:00pm&#39;
+2017-04-04/24/17 17:00:00
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;And finally, don&amp;rsquo;t forgot to&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;man date
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;to learn more about what it can do.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>mongodb change replica set hostname</title>
