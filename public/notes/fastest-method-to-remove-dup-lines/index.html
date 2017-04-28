@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Axcoto - DevOps and Development Services</title>
+    <meta name="description" content="Axcoto is a free lancer service focus in web&amp; mobile development. I also sell ready-to-use code library such as WordPress plugin, jQuery plugin, custom Rails/PHP apps">
+    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/css/cutestrap.min.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="canonical" href="https://axcoto.com/">
+    <link rel="alternate" type="application/rss+xml" title="Axcoto" href="https://axcoto.com/feed.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/default.min.css">
+  </head>
+  <body>
+
+    <header class="wrapper-large ta-center">
+    <h1>
+      <a href="/"><img src="/images/logo50.jpg" class="logo" alt="Axcoto" /></a>
+    </h1>
+    <p>I'm Vinh, a husband, father&amp; programing enthusiat</p>
+    
+    <ul class="nav">
+      <li><a href="/#about">About</a>
+      <li><a href="/#service">Service</a></li>
+      <li><a href="/shop">Shop</a></li>
+      <li><a href="/#work">Works</a></li>
+      <li><a href="/notes">Notes</a></li>
+      <li><a href="https://yeo.space" target="_blank">Hire me(Available)</a></li>
+    </ul>
+    </header>
+
+
+<section class="wrapper">
+
+<div>
+  <h1 id="title">
+    <span><a href="http://axcoto.com/notes/fastest-method-to-remove-dup-lines/">10x faster method to remove dup lines</a> </span>
+  </h1>
+  <p>
+  <a href="/">Vinh</a> -&nbsp;
+  <time class="pull-right post-list">Thu, Apr 27, 2017</time>&nbsp;
+  
+  
+  <a href="/tags/awk">awk</a>
+  
+  <a href="/tags/sort">sort</a>
+  
+  <a href="/tags/text-processing">text processing</a>
+  
+  <a href="/tags/duplicate">duplicate</a>
+  
+  </p>
+
+  <section>
+  <p>Whenever talking about removing duplicate line, I always use a
+combination of <code>sort</code> and <code>uniq</code> like this:</p>
+
+<pre><code class="language-bash">wc -l source.csv
+10941092 source.csv
+
+time sort -u source.csv | uniq &gt; source_standarize.csv
+real0m50126s
+user0m40.104s
+sys0m0.944s
+</code></pre>
+
+<p>However, today I learn a new trick which is 10x faster using awk:</p>
+
+<pre><code>time awk '!a[$0]++' source.csv
+
+real0m9.400s
+user0m5.336s
+sys0m0.240s
+</code></pre>
+
+<p>So 10x faster. Let&rsquo;s see how this trick works</p>
+
+<pre><code>awk '1' file
+</code></pre>
+
+<p>1 evaluates to true, and will return everything.</p>
+
+<pre><code>awk '0' file
+</code></pre>
+
+<p>will return nothing.</p>
+
+<p>awk goes over line by line, evaluate and the result, if it&rsquo;s true, it
+print out. so look at <code>!a[$0]++</code></p>
+
+<ul>
+<li><code>a</code> is just an varaible that we declate and use.</li>
+<li><code>a[$0]</code>: $0 is whole line, so we create an hash, with the line text as
+key</li>
+<li>a[$0]++ will incrase the value to 1</li>
+<li>First time a line appear, <code>a[$0]</code> return 0. Hence <code>!0</code>-&gt; true.</li>
+<li>Second time a line appear, <code>a[$0]</code> is already 2, and will increaseing.
+<code>!2</code> -&gt; false</li>
+</ul>
+
+<p>Hence <code>awk</code> will not print out that.
+So basically this is an giant hash map</p>
+
+  </section>
+</div>
+
+</section>
+
+    <footer class="grid wrapper">
+    <div class="copyright">
+      Axcoto &copy;2017.
+    </div>
+    <div class="ta-right">
+      Made with happiness when <a href="https://axcoto.com" target="https://mochi.axcoto.com">mochi</a> is crying.
+    </div>
+    </footer>
+
+    <script src="/js/main.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  </body>
+</html>
+

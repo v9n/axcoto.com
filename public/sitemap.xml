@@ -2,6 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://axcoto.com/notes/fastest-method-to-remove-dup-lines/</loc>
+    <lastmod>2017-04-27T12:19:23-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://axcoto.com/notes/awk-tip/</loc>
+    <lastmod>2017-04-23T12:23:34-07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://axcoto.com/notes/format-date-with-linux/</loc>
     <lastmod>2017-04-23T01:23:48-07:00</lastmod>
   </url>
@@ -44,6 +54,12 @@
   <url>
     <loc>http://axcoto.com/tags/asset/</loc>
     <lastmod>2016-07-07T17:51:36-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://axcoto.com/tags/awk/</loc>
+    <lastmod>2017-04-27T12:19:23-07:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -96,19 +112,25 @@
   
   <url>
     <loc>http://axcoto.com/categories/development/</loc>
-    <lastmod>2016-12-02T20:30:19-08:00</lastmod>
+    <lastmod>2017-04-27T12:19:23-07:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://axcoto.com/categories/devops/</loc>
-    <lastmod>2017-04-23T01:23:48-07:00</lastmod>
+    <lastmod>2017-04-27T12:19:23-07:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://axcoto.com/tags/docker/</loc>
     <lastmod>2016-12-16T19:54:58-08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://axcoto.com/tags/duplicate/</loc>
+    <lastmod>2017-04-27T12:19:23-07:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -162,7 +184,7 @@
   
   <url>
     <loc>http://axcoto.com/</loc>
-    <lastmod>2017-04-23T01:23:48-07:00</lastmod>
+    <lastmod>2017-04-27T12:19:23-07:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -174,7 +196,7 @@
   
   <url>
     <loc>http://axcoto.com/notes/</loc>
-    <lastmod>2017-04-23T01:23:48-07:00</lastmod>
+    <lastmod>2017-04-27T12:19:23-07:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -197,6 +219,12 @@
   </url>
   
   <url>
+    <loc>http://axcoto.com/tags/sort/</loc>
+    <lastmod>2017-04-27T12:19:23-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://axcoto.com/tags/ssl/</loc>
     <lastmod>2016-07-03T23:38:50-07:00</lastmod>
     <priority>0</priority>
@@ -210,6 +238,12 @@
   
   <url>
     <loc>http://axcoto.com/tags/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://axcoto.com/tags/text-processing/</loc>
+    <lastmod>2017-04-27T12:19:23-07:00</lastmod>
     <priority>0</priority>
   </url>
   
