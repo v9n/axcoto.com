@@ -1,8 +1,12 @@
 +++
 date = "2017-04-06T12:27:20-07:00"
 title = "rsync tip"
-draft = false
+draft = true
 
+tags = [ "linux", "rsync", "backup", "bash", "linux-daily" ]
+categories = [
+  "DevOps",
+]
 +++
 
 Rsync is a great tool when we need to transfer data. It supports dedupe,
