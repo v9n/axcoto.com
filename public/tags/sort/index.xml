@@ -71,8 +71,23 @@ So basically this is an giant hash map&lt;/p&gt;
       <pubDate>Sun, 23 Apr 2017 12:23:34 -0700</pubDate>
       
       <guid>http://axcoto.com/notes/awk-tip/</guid>
-      <description>&lt;p&gt;AWK is a powerful tool to process text data. In it, we can do control
-structure, repeat&lt;/p&gt;
+      <description>
+
+&lt;p&gt;AWK is a powerful tool to process text data. In it, we can do control
+structure, loop, math calculatio like a real programming language.&lt;/p&gt;
+
+&lt;h2 id=&#34;tips&#34;&gt;Tips&lt;/h2&gt;
+
+&lt;p&gt;Let&amp;rsquo;s say we have a csv file of 2 columns, we want to create a new
+columns. We an do that as this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;awk -F, &#39;{$3=$1&amp;quot;-&amp;quot;$2; print}&#39; file.csv
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Sort by frequency&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;  cat $f/user.log | sort | uniq -c | sort -nr &amp;gt; $f/user_uniq.log
+&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     

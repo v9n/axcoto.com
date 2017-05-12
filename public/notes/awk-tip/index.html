@@ -56,8 +56,23 @@
   </p>
 
   <section>
-  <p>AWK is a powerful tool to process text data. In it, we can do control
-structure, repeat</p>
+  
+
+<p>AWK is a powerful tool to process text data. In it, we can do control
+structure, loop, math calculatio like a real programming language.</p>
+
+<h2 id="tips">Tips</h2>
+
+<p>Let&rsquo;s say we have a csv file of 2 columns, we want to create a new
+columns. We an do that as this:</p>
+
+<pre><code class="language-bash">awk -F, '{$3=$1&quot;-&quot;$2; print}' file.csv
+</code></pre>
+
+<p>Sort by frequency</p>
+
+<pre><code>  cat $f/user.log | sort | uniq -c | sort -nr &gt; $f/user_uniq.log
+</code></pre>
 
   </section>
 </div>
