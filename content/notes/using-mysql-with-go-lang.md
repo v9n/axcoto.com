@@ -119,6 +119,59 @@ func (n *ELog) TimingKv(eventName string, nanoseconds int64, kvs map[string]stri
 }
 ```
 
-This does nothing fancy but log the time so we can easily do benchmark in dev modes as a quick and dirty way
+This does nothing fancy but log the time so we can easily do benchmark in dev modes as a
+quick and dirty way.
 
+Let's get started with `dbr`. We almost keep the same thing. Just switch to `dbr`.
+
+```
+package db
+
+import (
+	//"database/sql"
+	_ "github.com/go-sql-driver/mysql"
+	"github.com/gocraft/dbr"
+	"time"
+)
+
+var Conn *dbr.Connection
+var elog ELog
+
+func init() {
+	var err error
+	elog = ELog{}
+	Conn, err = dbr.Open("mysql", "db", &elog)
+	checkErr(err)
+
+	Conn.SetMaxOpenConns(80)
+	Conn.SetMaxIdleConns(80)
+	Conn.SetConnMaxLifetime(time.Duration(1800) * time.Second)
+}
+
+func GetDbSession() *dbr.Session {
+	return Conn.NewSession(nil)
+}
+
+func checkErr(err error) {
+	if err != nil {
+		panic(err)
+	}
+}
+```
+
+The important thing here is despite of switching to `dbr`, we still need to import
+the driver.
+
+Now we can run any queries:
+
+```
+type Row Struct {
+  Foo string
+  Bar string
+}
+
+var rows []*Row
+var sess = db.Conn.NewSession(nil)
+sess.SelectBySql("SELECT foo, bar from table").LoadStructs(&rows)
+```
 
