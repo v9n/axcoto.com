@@ -1,6 +1,6 @@
 +++
 date = "2016-11-09T21:18:32-08:00"
-draft = true
+draft = false
 title = "Mongoid autoload relations data"
 
 +++

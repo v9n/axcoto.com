@@ -1,7 +1,7 @@
 +++
 date = "2017-05-24T12:43:31-07:00"
 title = "openvpn allow same user connection from multiple machine"
-draft = true
+draft = false
 
 +++
 
