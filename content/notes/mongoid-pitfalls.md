@@ -1,9 +1,11 @@
 +++
 date = "2016-11-09T21:18:32-08:00"
 draft = false
-title = "Mongoid autoload relations data"
+title = "Mongoid Pitfall"
 
 +++
+
+## Default value and callback
 
 I recently started to work with Rails and Mongoid. I don't have much
 experience with ActiveRecord and this is the first job that I actually
@@ -53,4 +55,27 @@ field :foo, type: Time, default: Time.now.utc
 Now, the value of everydocument will be exactly same value at the time
 the file is loaded and evaluated by RubyVM.
 
-The right way to do this is using a callback.
+The right way to do this is using a callback so that the value is
+evaluate lazily at runtime
+
+## Default value and search
+
+The other day I see no data in an `admin ui` which supposed to always
+have data. I fired up Rails console, and run query:
+
+```
+Check.where(type: 'http').count
+```
+
+It returns 0:
+
+But I do see some document with that:
+
+```
+Check.first.type
+```
+
+I open the mongo shell to check real data and the field was missing.
+Turning out, the `default` masked the problem, when data is missing,
+default is kicked in and field it in.
+
