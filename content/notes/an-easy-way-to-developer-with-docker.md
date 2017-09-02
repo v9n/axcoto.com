@@ -1,8 +1,13 @@
 +++
 date = "2017-05-21T11:02:05-07:00"
 title = "an easy way to developer with docker"
-draft = true
+draft = false
 
+tags = [ "docker", "development" ]
+categories = [
+  "Development",
+  "DevOps",
+]
 +++
 
 When we want to experiment with some progamming language or particular

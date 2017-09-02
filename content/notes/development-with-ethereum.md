@@ -1,7 +1,12 @@
-+ate = "2017-08-30T11:02:05-07:00"
++++
+date = "2017-08-30T11:02:05-07:00"
 title = "Development and Testing Smart Contract on Ethereum"
-draft = true
+draft = false
 
+tags = [ "ethereum", "testrpc", "blockchain", ]
+categories = [
+  "development",
+]
 +++
 
 # Easy way, using testrpc.
@@ -14,8 +19,6 @@ testrpc
 # cd into Mist folder
 ./Mist --rpc http://localhost:8545
 ```
-
-Now, once we
 
 ## Step 1: Run test network
 

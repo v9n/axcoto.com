@@ -3,6 +3,10 @@ date = "2017-05-24T12:43:31-07:00"
 title = "openvpn allow same user connection from multiple machine"
 draft = false
 
+tags = [ "openvpn" ]
+categories = [
+  "devops",
+]
 +++
 
 It's common in OpenVPN worlrd where each of user allow to have only one

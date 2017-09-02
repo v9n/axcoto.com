@@ -3,6 +3,10 @@ date = "2016-11-09T21:18:32-08:00"
 draft = false
 title = "Mongoid Pitfall"
 
+tags = [ "mongoid", "ruby" ]
+categories = [
+  "development",
+]
 +++
 
 ## Default value and callback

@@ -5,8 +5,8 @@ title = "Append hash to asset in hugo"
 
 tags = [ "hugo", "asset", "perf" ]
 categories = [
-  "Development",
-  "DevOps",
+  "development",
+  "devops",
 ]
 +++
 

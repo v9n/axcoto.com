@@ -3,6 +3,10 @@ date = "2017-08-30T11:02:05-07:00"
 title = "Go testing with Go check"
 draft = false
 
+tags = [ "golang", "unit-test" ]
+categories = [
+  "development",
+]
 +++
 
 Using the built-in Go testing package is vey tedious and repeated.
