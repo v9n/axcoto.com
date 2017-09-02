@@ -37,56 +37,61 @@
 <section class="wrapper">
 
 <div>
-  <h1 id="title">Docker</h1>
-  <ul id="list">
-    
-      <h4>
-        <span><a href="http://axcoto.com/notes/puma-cannot-assign-request-address/">Cannot assign requested address - bind(2) for &#34;::1&#34;</a> </span>
-      </h4>
-      <p>
-        <a href="/">Vinh</a> -&nbsp;
-        <time class="pull-right post-list">Fri, Sep 1, 2017</time>&nbsp;
-        
-        
-          <a href="/tags/docker">docker</a>
-        
-          <a href="/tags/puma">puma</a>
-        
-          <a href="/tags/rails">rails</a>
-        
-      </p>
-    
-      <h4>
-        <span><a href="http://axcoto.com/notes/an-easy-way-to-developer-with-docker/">an easy way to developer with docker</a> </span>
-      </h4>
-      <p>
-        <a href="/">Vinh</a> -&nbsp;
-        <time class="pull-right post-list">Sun, May 21, 2017</time>&nbsp;
-        
-        
-          <a href="/tags/docker">docker</a>
-        
-          <a href="/tags/development">development</a>
-        
-      </p>
-    
-      <h4>
-        <span><a href="http://axcoto.com/notes/docker-btrfs/">Using btrfs with docker</a> </span>
-      </h4>
-      <p>
-        <a href="/">Vinh</a> -&nbsp;
-        <time class="pull-right post-list">Fri, Dec 16, 2016</time>&nbsp;
-        
-        
-          <a href="/tags/docker">docker</a>
-        
-          <a href="/tags/storage">storage</a>
-        
-          <a href="/tags/btrfs">btrfs</a>
-        
-      </p>
-    
-  </ul>
+  <h1 id="title">
+    <span><a href="http://axcoto.com/notes/go-testing-with-gocheck/">Go testing with Go check</a> </span>
+  </h1>
+  <p>
+  <a href="/">Vinh</a> -&nbsp;
+  <time class="pull-right post-list">Wed, Aug 30, 2017</time>&nbsp;
+  
+  
+  <a href="/tags/golang">golang</a>
+  
+  <a href="/tags/unit-test">unit-test</a>
+  
+  </p>
+
+  <section>
+  <p>Using the built-in Go testing package is vey tedious and repeated.
+Especially when doing DeepEqual it&rsquo;s requires more code.</p>
+
+<p>The <code>gocheck</code> package attempt to handle that. It&rsquo;s use is very clean as
+well.</p>
+
+<p>We wrap around Go built-in test like this:</p>
+
+<pre><code>package thing
+
+import (
+  . &quot;gopkg.in/check.v1&quot;
+  &quot;testing&quot;
+)
+
+// Hook up gocheck into the &quot;gopkg test&quot; runner.
+func TestTheThing(t *testing.T) { TestingT(t) }
+
+// Now we use our own Suite, I tend to think of its like context in Ruby
+type SubnetSuite struct{}
+
+// Now we actually register the suite
+var _ = Suite(&amp;SubnetSuite{})
+
+// Define out test
+func (s *Suite) TestCase1(c *C) {
+}
+</code></pre>
+
+<p>The thing with <code>C</code> is it expose a nice interface to assert such as:</p>
+
+<pre><code>c.Assert(Foo, Equal, &quot;bar&quot;)
+c.Assert(Foo, IsNil)
+c.Assert(Foo, DeepEqual, bar)
+c.Assert(Foo, NotNull, bar)
+</code></pre>
+
+<p>Notice how it&rsquo;s very descriptive with the checker</p>
+
+  </section>
 </div>
 
 </section>

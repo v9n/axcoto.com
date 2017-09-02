@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blockchain on My New Hugo Site</title>
+    <link>http://axcoto.com/tags/blockchain/index.xml</link>
+    <description>Recent content in Blockchain on My New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <atom:link href="http://axcoto.com/tags/blockchain/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Development and Testing Smart Contract on Ethereum</title>
+      <link>http://axcoto.com/notes/development-with-ethereum/</link>
+      <pubDate>Wed, 30 Aug 2017 11:02:05 -0700</pubDate>
+      
+      <guid>http://axcoto.com/notes/development-with-ethereum/</guid>
+      <description>
+
+&lt;h1 id=&#34;easy-way-using-testrpc&#34;&gt;Easy way, using testrpc.&lt;/h1&gt;
+
+&lt;p&gt;This is a nodejs envrionment. Once install testrpc, we can run it and
+connect Mist to it&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;testrpc
+# cd into Mist folder
+./Mist --rpc http://localhost:8545
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;step-1-run-test-network&#34;&gt;Step 1: Run test network&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;./geth --rpc --nat none --dev
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;step-2-create-first-account&#34;&gt;Step 2: Create first account&lt;/h2&gt;
+
+&lt;p&gt;Given that it requires ethereum to power anything. We need to mine
+outselves for that to work&lt;/p&gt;
+
+&lt;p&gt;TO do this, we use &lt;code&gt;geth&lt;/code&gt; official client:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;geth attach
+ipc:/var/folders/ts/7xznj_p13xb7_5th3w6yjmjm0000gn/T/ethereum_dev_mode/geth.ipc
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The ipc address can be found hwen we run &lt;code&gt;geth --rpc&lt;/code&gt; above. Once
+console is open, we can run:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;personal.newAccount()
+miner.setEtherbase(personal.listAccounts[0]) // Hit ENTER
+miner.start() // Hit ENTER
+# We can check balance with
+eth.getBalance(personal.listAccounts[0]) // Hit ENTER
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

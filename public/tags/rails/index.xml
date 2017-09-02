@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Rails on My New Hugo Site</title>
+    <link>http://axcoto.com/tags/rails/index.xml</link>
+    <description>Recent content in Rails on My New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <atom:link href="http://axcoto.com/tags/rails/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Cannot assign requested address - bind(2) for &#34;::1&#34;</title>
+      <link>http://axcoto.com/notes/puma-cannot-assign-request-address/</link>
+      <pubDate>Fri, 01 Sep 2017 11:02:05 -0700</pubDate>
+      
+      <guid>http://axcoto.com/notes/puma-cannot-assign-request-address/</guid>
+      <description>&lt;p&gt;Today I encountered this error during running Puma in Dockerm, using
+official 2.3 Ruby image.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Cannot assign requested address - bind(2) for &amp;quot;::1&amp;quot; port 3000 (Errno::EADDRNOTAVAIL)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Google search found out that
+&lt;a href=&#34;this issue&#34;&gt;https://github.com/puma/puma/issues/1062&lt;/a&gt; and a fixed in
+&lt;a href=&#34;https://github.com/puma/puma/pull/1318&#34;&gt;https://github.com/puma/puma/pull/1318&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;However, the fixed wasn&amp;rsquo;t working for me. The core of issue is somehow
+even the docker container doesn&amp;rsquo;t support ipv6 but we have an entry like
+this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;::1 localhost ip6-localhost ip6-loopback
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;in host file. This #1318 supposed to fixed it. It seems the issue caugh
+by webpack dev server as well besde Puma. At that point, I was
+frustrated and just try to find a way to disable ipv6 in docker
+container.&lt;/p&gt;
+
+&lt;p&gt;If you&amp;rsquo;re using docker compose you can add this line to disable ipv6,
+hence remove the &lt;code&gt;::1&lt;/code&gt; entry from host file:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;  sysctls:
+      net.ipv6.conf.all.disable_ipv6: 0
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

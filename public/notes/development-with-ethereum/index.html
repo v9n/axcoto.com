@@ -37,56 +37,62 @@
 <section class="wrapper">
 
 <div>
-  <h1 id="title">Docker</h1>
-  <ul id="list">
-    
-      <h4>
-        <span><a href="http://axcoto.com/notes/puma-cannot-assign-request-address/">Cannot assign requested address - bind(2) for &#34;::1&#34;</a> </span>
-      </h4>
-      <p>
-        <a href="/">Vinh</a> -&nbsp;
-        <time class="pull-right post-list">Fri, Sep 1, 2017</time>&nbsp;
-        
-        
-          <a href="/tags/docker">docker</a>
-        
-          <a href="/tags/puma">puma</a>
-        
-          <a href="/tags/rails">rails</a>
-        
-      </p>
-    
-      <h4>
-        <span><a href="http://axcoto.com/notes/an-easy-way-to-developer-with-docker/">an easy way to developer with docker</a> </span>
-      </h4>
-      <p>
-        <a href="/">Vinh</a> -&nbsp;
-        <time class="pull-right post-list">Sun, May 21, 2017</time>&nbsp;
-        
-        
-          <a href="/tags/docker">docker</a>
-        
-          <a href="/tags/development">development</a>
-        
-      </p>
-    
-      <h4>
-        <span><a href="http://axcoto.com/notes/docker-btrfs/">Using btrfs with docker</a> </span>
-      </h4>
-      <p>
-        <a href="/">Vinh</a> -&nbsp;
-        <time class="pull-right post-list">Fri, Dec 16, 2016</time>&nbsp;
-        
-        
-          <a href="/tags/docker">docker</a>
-        
-          <a href="/tags/storage">storage</a>
-        
-          <a href="/tags/btrfs">btrfs</a>
-        
-      </p>
-    
-  </ul>
+  <h1 id="title">
+    <span><a href="http://axcoto.com/notes/development-with-ethereum/">Development and Testing Smart Contract on Ethereum</a> </span>
+  </h1>
+  <p>
+  <a href="/">Vinh</a> -&nbsp;
+  <time class="pull-right post-list">Wed, Aug 30, 2017</time>&nbsp;
+  
+  
+  <a href="/tags/ethereum">ethereum</a>
+  
+  <a href="/tags/testrpc">testrpc</a>
+  
+  <a href="/tags/blockchain">blockchain</a>
+  
+  </p>
+
+  <section>
+  
+
+<h1 id="easy-way-using-testrpc">Easy way, using testrpc.</h1>
+
+<p>This is a nodejs envrionment. Once install testrpc, we can run it and
+connect Mist to it</p>
+
+<pre><code>testrpc
+# cd into Mist folder
+./Mist --rpc http://localhost:8545
+</code></pre>
+
+<h2 id="step-1-run-test-network">Step 1: Run test network</h2>
+
+<pre><code>./geth --rpc --nat none --dev
+</code></pre>
+
+<h2 id="step-2-create-first-account">Step 2: Create first account</h2>
+
+<p>Given that it requires ethereum to power anything. We need to mine
+outselves for that to work</p>
+
+<p>TO do this, we use <code>geth</code> official client:</p>
+
+<pre><code>geth attach
+ipc:/var/folders/ts/7xznj_p13xb7_5th3w6yjmjm0000gn/T/ethereum_dev_mode/geth.ipc
+</code></pre>
+
+<p>The ipc address can be found hwen we run <code>geth --rpc</code> above. Once
+console is open, we can run:</p>
+
+<pre><code>personal.newAccount()
+miner.setEtherbase(personal.listAccounts[0]) // Hit ENTER
+miner.start() // Hit ENTER
+# We can check balance with
+eth.getBalance(personal.listAccounts[0]) // Hit ENTER
+</code></pre>
+
+  </section>
 </div>
 
 </section>

@@ -9,6 +9,99 @@
     <atom:link href="http://axcoto.com/categories/devops/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>openvpn allow same user connection from multiple machine</title>
+      <link>http://axcoto.com/notes/openvpn-allow-same-user-connection-from-multiple-machine/</link>
+      <pubDate>Wed, 24 May 2017 12:43:31 -0700</pubDate>
+      
+      <guid>http://axcoto.com/notes/openvpn-allow-same-user-connection-from-multiple-machine/</guid>
+      <description>&lt;p&gt;It&amp;rsquo;s common in OpenVPN worlrd where each of user allow to have only one
+active connection to server. If an user try to connect from other
+machine, the other will be disconnected.&lt;/p&gt;
+
+&lt;p&gt;Basically, each client require their own cert/key with an &lt;strong&gt;unique&lt;/strong&gt;
+common name(whcih is default behaviour). While we should of course use
+different cert/key for every user, it&amp;rsquo;s fine to allow same user connect
+from multiple machine.&lt;/p&gt;
+
+&lt;p&gt;To by pass this, we can simply set this in &lt;code&gt;/etc/openvpn/openvpn.conf&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;duplicate-cn
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;So why were this was turn off by default given its usefulness?&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>an easy way to developer with docker</title>
+      <link>http://axcoto.com/notes/an-easy-way-to-developer-with-docker/</link>
+      <pubDate>Sun, 21 May 2017 11:02:05 -0700</pubDate>
+      
+      <guid>http://axcoto.com/notes/an-easy-way-to-developer-with-docker/</guid>
+      <description>&lt;p&gt;When we want to experiment with some progamming language or particular
+framework. It&amp;rsquo;s bit painful to install them into our own development
+machine. Cuz we may not end up using the language and ended up bloat our
+machine.&lt;/p&gt;
+
+&lt;p&gt;Docker helps to reduce that pain. We can get a bash console&lt;/p&gt;
+
+&lt;p&gt;Example, say we want to work with Elixir, simply run this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;docker run --rm -it -v `pwd`:/app elixir /bin/bash -l
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now we have a bash session in a container with Elixir and we can invoke
+any Elixir command.&lt;/p&gt;
+
+&lt;p&gt;Usually we want to run a web server. We can do this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;docker run --rm -it -v `pwd`:/app -p 4000:4000 elixir /bin/bash -l
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now we can run Phoeni and hit &lt;code&gt;127.0.0.1:4000&lt;/code&gt; as if we were working on
+host machine.&lt;/p&gt;
+
+&lt;p&gt;But getting run these command every time is boiler plate. Let&amp;rsquo;s
+intergrate them into our shell. Put this in your shell rc file, or
+anywhere it can be loaded automatically.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;docker_repl() {
+  docker run --rm -it -v `pwd`:/app $@ /bin/bash -l
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now, you simple run:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;docker_repl -p 4000:4000 elixir
+docker_repl -p 3000:3000 crystallang/crystal
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;And voila, you have full access to language runtime and your code in
+&lt;code&gt;/app&lt;/code&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>crystal kq_init detected broken kqueue</title>
+      <link>http://axcoto.com/notes/crystal-kq_init-detected-broken-kqueue/</link>
+      <pubDate>Sat, 20 May 2017 18:14:41 -0700</pubDate>
+      
+      <guid>http://axcoto.com/notes/crystal-kq_init-detected-broken-kqueue/</guid>
+      <description>&lt;p&gt;I started to try out crystal lang today and got the first issue:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[warn] kq_init: detected broken kqueue; not using.: Undefined error: 0
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This can be solved by upgrade &lt;code&gt;libevent&lt;/code&gt;.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;brew upgrade libevent
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Problem solved.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>10x faster method to remove dup lines</title>
       <link>http://axcoto.com/notes/fastest-method-to-remove-dup-lines/</link>
       <pubDate>Thu, 27 Apr 2017 12:19:23 -0700</pubDate>

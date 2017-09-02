@@ -10,7 +10,7 @@
     <meta name="description" content="Axcoto is a free lancer service focus in web&amp; mobile development. I also sell ready-to-use code library such as WordPress plugin, jQuery plugin, custom Rails/PHP apps">
     <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="/css/cutestrap.min.css">
-    <link rel="stylesheet" href="/css/main-4d71a5581e0393ddfc00249554fd4fa9.css">
+    <link rel="stylesheet" href="/css/main.css">
     <link rel="canonical" href="https://axcoto.com/">
     <link rel="alternate" type="application/rss+xml" title="Axcoto" href="https://axcoto.com/feed.xml">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/default.min.css">
@@ -37,56 +37,63 @@
 <section class="wrapper">
 
 <div>
-  <h1 id="title">Docker</h1>
-  <ul id="list">
-    
-      <h4>
-        <span><a href="http://axcoto.com/notes/puma-cannot-assign-request-address/">Cannot assign requested address - bind(2) for &#34;::1&#34;</a> </span>
-      </h4>
-      <p>
-        <a href="/">Vinh</a> -&nbsp;
-        <time class="pull-right post-list">Fri, Sep 1, 2017</time>&nbsp;
-        
-        
-          <a href="/tags/docker">docker</a>
-        
-          <a href="/tags/puma">puma</a>
-        
-          <a href="/tags/rails">rails</a>
-        
-      </p>
-    
-      <h4>
-        <span><a href="http://axcoto.com/notes/an-easy-way-to-developer-with-docker/">an easy way to developer with docker</a> </span>
-      </h4>
-      <p>
-        <a href="/">Vinh</a> -&nbsp;
-        <time class="pull-right post-list">Sun, May 21, 2017</time>&nbsp;
-        
-        
-          <a href="/tags/docker">docker</a>
-        
-          <a href="/tags/development">development</a>
-        
-      </p>
-    
-      <h4>
-        <span><a href="http://axcoto.com/notes/docker-btrfs/">Using btrfs with docker</a> </span>
-      </h4>
-      <p>
-        <a href="/">Vinh</a> -&nbsp;
-        <time class="pull-right post-list">Fri, Dec 16, 2016</time>&nbsp;
-        
-        
-          <a href="/tags/docker">docker</a>
-        
-          <a href="/tags/storage">storage</a>
-        
-          <a href="/tags/btrfs">btrfs</a>
-        
-      </p>
-    
-  </ul>
+  <h1 id="title">
+    <span><a href="http://axcoto.com/notes/an-easy-way-to-developer-with-docker/">an easy way to developer with docker</a> </span>
+  </h1>
+  <p>
+  <a href="/">Vinh</a> -&nbsp;
+  <time class="pull-right post-list">Sun, May 21, 2017</time>&nbsp;
+  
+  
+  <a href="/tags/docker">docker</a>
+  
+  <a href="/tags/development">development</a>
+  
+  </p>
+
+  <section>
+  <p>When we want to experiment with some progamming language or particular
+framework. It&rsquo;s bit painful to install them into our own development
+machine. Cuz we may not end up using the language and ended up bloat our
+machine.</p>
+
+<p>Docker helps to reduce that pain. We can get a bash console</p>
+
+<p>Example, say we want to work with Elixir, simply run this:</p>
+
+<pre><code>docker run --rm -it -v `pwd`:/app elixir /bin/bash -l
+</code></pre>
+
+<p>Now we have a bash session in a container with Elixir and we can invoke
+any Elixir command.</p>
+
+<p>Usually we want to run a web server. We can do this:</p>
+
+<pre><code>docker run --rm -it -v `pwd`:/app -p 4000:4000 elixir /bin/bash -l
+</code></pre>
+
+<p>Now we can run Phoeni and hit <code>127.0.0.1:4000</code> as if we were working on
+host machine.</p>
+
+<p>But getting run these command every time is boiler plate. Let&rsquo;s
+intergrate them into our shell. Put this in your shell rc file, or
+anywhere it can be loaded automatically.</p>
+
+<pre><code>docker_repl() {
+  docker run --rm -it -v `pwd`:/app $@ /bin/bash -l
+}
+</code></pre>
+
+<p>Now, you simple run:</p>
+
+<pre><code>docker_repl -p 4000:4000 elixir
+docker_repl -p 3000:3000 crystallang/crystal
+</code></pre>
+
+<p>And voila, you have full access to language runtime and your code in
+<code>/app</code></p>
+
+  </section>
 </div>
 
 </section>

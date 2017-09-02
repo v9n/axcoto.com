@@ -6,8 +6,231 @@
     <description>Recent content in Notes on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 27 Apr 2017 12:19:23 -0700</lastBuildDate>
+    <lastBuildDate>Fri, 01 Sep 2017 11:02:05 -0700</lastBuildDate>
     <atom:link href="http://axcoto.com/notes/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Cannot assign requested address - bind(2) for &#34;::1&#34;</title>
+      <link>http://axcoto.com/notes/puma-cannot-assign-request-address/</link>
+      <pubDate>Fri, 01 Sep 2017 11:02:05 -0700</pubDate>
+      
+      <guid>http://axcoto.com/notes/puma-cannot-assign-request-address/</guid>
+      <description>&lt;p&gt;Today I encountered this error during running Puma in Dockerm, using
+official 2.3 Ruby image.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Cannot assign requested address - bind(2) for &amp;quot;::1&amp;quot; port 3000 (Errno::EADDRNOTAVAIL)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Google search found out that
+&lt;a href=&#34;this issue&#34;&gt;https://github.com/puma/puma/issues/1062&lt;/a&gt; and a fixed in
+&lt;a href=&#34;https://github.com/puma/puma/pull/1318&#34;&gt;https://github.com/puma/puma/pull/1318&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;However, the fixed wasn&amp;rsquo;t working for me. The core of issue is somehow
+even the docker container doesn&amp;rsquo;t support ipv6 but we have an entry like
+this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;::1 localhost ip6-localhost ip6-loopback
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;in host file. This #1318 supposed to fixed it. It seems the issue caugh
+by webpack dev server as well besde Puma. At that point, I was
+frustrated and just try to find a way to disable ipv6 in docker
+container.&lt;/p&gt;
+
+&lt;p&gt;If you&amp;rsquo;re using docker compose you can add this line to disable ipv6,
+hence remove the &lt;code&gt;::1&lt;/code&gt; entry from host file:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;  sysctls:
+      net.ipv6.conf.all.disable_ipv6: 0
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Development and Testing Smart Contract on Ethereum</title>
+      <link>http://axcoto.com/notes/development-with-ethereum/</link>
+      <pubDate>Wed, 30 Aug 2017 11:02:05 -0700</pubDate>
+      
+      <guid>http://axcoto.com/notes/development-with-ethereum/</guid>
+      <description>
+
+&lt;h1 id=&#34;easy-way-using-testrpc&#34;&gt;Easy way, using testrpc.&lt;/h1&gt;
+
+&lt;p&gt;This is a nodejs envrionment. Once install testrpc, we can run it and
+connect Mist to it&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;testrpc
+# cd into Mist folder
+./Mist --rpc http://localhost:8545
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;step-1-run-test-network&#34;&gt;Step 1: Run test network&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;./geth --rpc --nat none --dev
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;step-2-create-first-account&#34;&gt;Step 2: Create first account&lt;/h2&gt;
+
+&lt;p&gt;Given that it requires ethereum to power anything. We need to mine
+outselves for that to work&lt;/p&gt;
+
+&lt;p&gt;TO do this, we use &lt;code&gt;geth&lt;/code&gt; official client:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;geth attach
+ipc:/var/folders/ts/7xznj_p13xb7_5th3w6yjmjm0000gn/T/ethereum_dev_mode/geth.ipc
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The ipc address can be found hwen we run &lt;code&gt;geth --rpc&lt;/code&gt; above. Once
+console is open, we can run:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;personal.newAccount()
+miner.setEtherbase(personal.listAccounts[0]) // Hit ENTER
+miner.start() // Hit ENTER
+# We can check balance with
+eth.getBalance(personal.listAccounts[0]) // Hit ENTER
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Go testing with Go check</title>
+      <link>http://axcoto.com/notes/go-testing-with-gocheck/</link>
+      <pubDate>Wed, 30 Aug 2017 11:02:05 -0700</pubDate>
+      
+      <guid>http://axcoto.com/notes/go-testing-with-gocheck/</guid>
+      <description>&lt;p&gt;Using the built-in Go testing package is vey tedious and repeated.
+Especially when doing DeepEqual it&amp;rsquo;s requires more code.&lt;/p&gt;
+
+&lt;p&gt;The &lt;code&gt;gocheck&lt;/code&gt; package attempt to handle that. It&amp;rsquo;s use is very clean as
+well.&lt;/p&gt;
+
+&lt;p&gt;We wrap around Go built-in test like this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;package thing
+
+import (
+  . &amp;quot;gopkg.in/check.v1&amp;quot;
+  &amp;quot;testing&amp;quot;
+)
+
+// Hook up gocheck into the &amp;quot;gopkg test&amp;quot; runner.
+func TestTheThing(t *testing.T) { TestingT(t) }
+
+// Now we use our own Suite, I tend to think of its like context in Ruby
+type SubnetSuite struct{}
+
+// Now we actually register the suite
+var _ = Suite(&amp;amp;SubnetSuite{})
+
+// Define out test
+func (s *Suite) TestCase1(c *C) {
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The thing with &lt;code&gt;C&lt;/code&gt; is it expose a nice interface to assert such as:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;c.Assert(Foo, Equal, &amp;quot;bar&amp;quot;)
+c.Assert(Foo, IsNil)
+c.Assert(Foo, DeepEqual, bar)
+c.Assert(Foo, NotNull, bar)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Notice how it&amp;rsquo;s very descriptive with the checker&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>openvpn allow same user connection from multiple machine</title>
+      <link>http://axcoto.com/notes/openvpn-allow-same-user-connection-from-multiple-machine/</link>
+      <pubDate>Wed, 24 May 2017 12:43:31 -0700</pubDate>
+      
+      <guid>http://axcoto.com/notes/openvpn-allow-same-user-connection-from-multiple-machine/</guid>
+      <description>&lt;p&gt;It&amp;rsquo;s common in OpenVPN worlrd where each of user allow to have only one
+active connection to server. If an user try to connect from other
+machine, the other will be disconnected.&lt;/p&gt;
+
+&lt;p&gt;Basically, each client require their own cert/key with an &lt;strong&gt;unique&lt;/strong&gt;
+common name(whcih is default behaviour). While we should of course use
+different cert/key for every user, it&amp;rsquo;s fine to allow same user connect
+from multiple machine.&lt;/p&gt;
+
+&lt;p&gt;To by pass this, we can simply set this in &lt;code&gt;/etc/openvpn/openvpn.conf&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;duplicate-cn
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;So why were this was turn off by default given its usefulness?&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>an easy way to developer with docker</title>
+      <link>http://axcoto.com/notes/an-easy-way-to-developer-with-docker/</link>
+      <pubDate>Sun, 21 May 2017 11:02:05 -0700</pubDate>
+      
+      <guid>http://axcoto.com/notes/an-easy-way-to-developer-with-docker/</guid>
+      <description>&lt;p&gt;When we want to experiment with some progamming language or particular
+framework. It&amp;rsquo;s bit painful to install them into our own development
+machine. Cuz we may not end up using the language and ended up bloat our
+machine.&lt;/p&gt;
+
+&lt;p&gt;Docker helps to reduce that pain. We can get a bash console&lt;/p&gt;
+
+&lt;p&gt;Example, say we want to work with Elixir, simply run this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;docker run --rm -it -v `pwd`:/app elixir /bin/bash -l
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now we have a bash session in a container with Elixir and we can invoke
+any Elixir command.&lt;/p&gt;
+
+&lt;p&gt;Usually we want to run a web server. We can do this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;docker run --rm -it -v `pwd`:/app -p 4000:4000 elixir /bin/bash -l
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now we can run Phoeni and hit &lt;code&gt;127.0.0.1:4000&lt;/code&gt; as if we were working on
+host machine.&lt;/p&gt;
+
+&lt;p&gt;But getting run these command every time is boiler plate. Let&amp;rsquo;s
+intergrate them into our shell. Put this in your shell rc file, or
+anywhere it can be loaded automatically.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;docker_repl() {
+  docker run --rm -it -v `pwd`:/app $@ /bin/bash -l
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now, you simple run:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;docker_repl -p 4000:4000 elixir
+docker_repl -p 3000:3000 crystallang/crystal
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;And voila, you have full access to language runtime and your code in
+&lt;code&gt;/app&lt;/code&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>crystal kq_init detected broken kqueue</title>
+      <link>http://axcoto.com/notes/crystal-kq_init-detected-broken-kqueue/</link>
+      <pubDate>Sat, 20 May 2017 18:14:41 -0700</pubDate>
+      
+      <guid>http://axcoto.com/notes/crystal-kq_init-detected-broken-kqueue/</guid>
+      <description>&lt;p&gt;I started to try out crystal lang today and got the first issue:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[warn] kq_init: detected broken kqueue; not using.: Undefined error: 0
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This can be solved by upgrade &lt;code&gt;libevent&lt;/code&gt;.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;brew upgrade libevent
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Problem solved.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>10x faster method to remove dup lines</title>
@@ -646,6 +869,84 @@ I have in mind. Stay tune.&lt;/p&gt;
     </item>
     
     <item>
+      <title>Mongoid Pitfall</title>
+      <link>http://axcoto.com/notes/mongoid-pitfalls/</link>
+      <pubDate>Wed, 09 Nov 2016 21:18:32 -0800</pubDate>
+      
+      <guid>http://axcoto.com/notes/mongoid-pitfalls/</guid>
+      <description>
+
+&lt;h2 id=&#34;default-value-and-callback&#34;&gt;Default value and callback&lt;/h2&gt;
+
+&lt;p&gt;I recently started to work with Rails and Mongoid. I don&amp;rsquo;t have much
+experience with ActiveRecord and this is the first job that I actually
+use Rails.&lt;/p&gt;
+
+&lt;p&gt;The other day we have a query that looks like this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;array.each do |user_id|
+  User.find(user_id)
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The array contains 20 elements. And A find by id should be very fast but
+above query run in ~10s.&lt;/p&gt;
+
+&lt;p&gt;At first I tried to turn it into something like this&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;User.where(:id.in =&amp;gt; array).each 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;But it is still superslow. Turning out &lt;strong&gt;MongoiD&lt;/strong&gt; will auto load all
+relations and this user has lots of association so Mongoid will fetch
+all kind of relations. This array contains a list of heavy users in our
+app with lots of related data.&lt;/p&gt;
+
+&lt;p&gt;The fix is simply:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;User.without(:relation).find(user_id)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The lession is that we should always benchmark code instead of blindly
+guessing which parts of code is slow. If I benchmark them right at the
+beginning I would have known exactly the problem much quicker.&lt;/p&gt;
+
+&lt;p&gt;The second thing is default value. Value is evaluated instantly at run
+time, when the file is loaded if the value wasn&amp;rsquo;t a closure.&lt;/p&gt;
+
+&lt;p&gt;Let&amp;rsquo;s say you have this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;field :foo, type: Time, default: Time.now.utc
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now, the value of everydocument will be exactly same value at the time
+the file is loaded and evaluated by RubyVM.&lt;/p&gt;
+
+&lt;p&gt;The right way to do this is using a callback so that the value is
+evaluate lazily at runtime&lt;/p&gt;
+
+&lt;h2 id=&#34;default-value-and-search&#34;&gt;Default value and search&lt;/h2&gt;
+
+&lt;p&gt;The other day I see no data in an &lt;code&gt;admin ui&lt;/code&gt; which supposed to always
+have data. I fired up Rails console, and run query:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Check.where(type: &#39;http&#39;).count
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;It returns 0:&lt;/p&gt;
+
+&lt;p&gt;But I do see some document with that:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Check.first.type
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;I open the mongo shell to check real data and the field was missing.
+Turning out, the &lt;code&gt;default&lt;/code&gt; masked the problem, when data is missing,
+default is kicked in and field it in.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Append hash to asset in hugo</title>
       <link>http://axcoto.com/notes/append-hash-to-asset-in-hugo/</link>
       <pubDate>Thu, 07 Jul 2016 17:51:36 -0700</pubDate>
@@ -697,16 +998,6 @@ hash appended.&lt;/p&gt;
       <description>&lt;p&gt;Linux gives many tool to represent how well the system is perform. The
 issue is the output of those tool is hard to understand. In this note,
 let&amp;rsquo;s dive into some metric from default system.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>using letencrypt with haproxy</title>
-      <link>http://axcoto.com/notes/using-letencrypt-with-haproxy/</link>
-      <pubDate>Sun, 03 Jul 2016 23:38:50 -0700</pubDate>
-      
-      <guid>http://axcoto.com/notes/using-letencrypt-with-haproxy/</guid>
-      <description>&lt;p&gt;After setting up hugo, it&amp;rsquo;s will be very cool to use&lt;/p&gt;
 </description>
     </item>
     

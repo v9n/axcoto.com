@@ -10,7 +10,7 @@
     <meta name="description" content="Axcoto is a free lancer service focus in web&amp; mobile development. I also sell ready-to-use code library such as WordPress plugin, jQuery plugin, custom Rails/PHP apps">
     <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="/css/cutestrap.min.css">
-    <link rel="stylesheet" href="/css/main-4d71a5581e0393ddfc00249554fd4fa9.css">
+    <link rel="stylesheet" href="/css/main.css">
     <link rel="canonical" href="https://axcoto.com/">
     <link rel="alternate" type="application/rss+xml" title="Axcoto" href="https://axcoto.com/feed.xml">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/default.min.css">
@@ -37,56 +37,53 @@
 <section class="wrapper">
 
 <div>
-  <h1 id="title">Docker</h1>
-  <ul id="list">
-    
-      <h4>
-        <span><a href="http://axcoto.com/notes/puma-cannot-assign-request-address/">Cannot assign requested address - bind(2) for &#34;::1&#34;</a> </span>
-      </h4>
-      <p>
-        <a href="/">Vinh</a> -&nbsp;
-        <time class="pull-right post-list">Fri, Sep 1, 2017</time>&nbsp;
-        
-        
-          <a href="/tags/docker">docker</a>
-        
-          <a href="/tags/puma">puma</a>
-        
-          <a href="/tags/rails">rails</a>
-        
-      </p>
-    
-      <h4>
-        <span><a href="http://axcoto.com/notes/an-easy-way-to-developer-with-docker/">an easy way to developer with docker</a> </span>
-      </h4>
-      <p>
-        <a href="/">Vinh</a> -&nbsp;
-        <time class="pull-right post-list">Sun, May 21, 2017</time>&nbsp;
-        
-        
-          <a href="/tags/docker">docker</a>
-        
-          <a href="/tags/development">development</a>
-        
-      </p>
-    
-      <h4>
-        <span><a href="http://axcoto.com/notes/docker-btrfs/">Using btrfs with docker</a> </span>
-      </h4>
-      <p>
-        <a href="/">Vinh</a> -&nbsp;
-        <time class="pull-right post-list">Fri, Dec 16, 2016</time>&nbsp;
-        
-        
-          <a href="/tags/docker">docker</a>
-        
-          <a href="/tags/storage">storage</a>
-        
-          <a href="/tags/btrfs">btrfs</a>
-        
-      </p>
-    
-  </ul>
+  <h1 id="title">
+    <span><a href="http://axcoto.com/notes/puma-cannot-assign-request-address/">Cannot assign requested address - bind(2) for &#34;::1&#34;</a> </span>
+  </h1>
+  <p>
+  <a href="/">Vinh</a> -&nbsp;
+  <time class="pull-right post-list">Fri, Sep 1, 2017</time>&nbsp;
+  
+  
+  <a href="/tags/docker">docker</a>
+  
+  <a href="/tags/puma">puma</a>
+  
+  <a href="/tags/rails">rails</a>
+  
+  </p>
+
+  <section>
+  <p>Today I encountered this error during running Puma in Dockerm, using
+official 2.3 Ruby image.</p>
+
+<pre><code>Cannot assign requested address - bind(2) for &quot;::1&quot; port 3000 (Errno::EADDRNOTAVAIL)
+</code></pre>
+
+<p>Google search found out that
+<a href="this issue">https://github.com/puma/puma/issues/1062</a> and a fixed in
+<a href="https://github.com/puma/puma/pull/1318">https://github.com/puma/puma/pull/1318</a>.</p>
+
+<p>However, the fixed wasn&rsquo;t working for me. The core of issue is somehow
+even the docker container doesn&rsquo;t support ipv6 but we have an entry like
+this:</p>
+
+<pre><code>::1 localhost ip6-localhost ip6-loopback
+</code></pre>
+
+<p>in host file. This #1318 supposed to fixed it. It seems the issue caugh
+by webpack dev server as well besde Puma. At that point, I was
+frustrated and just try to find a way to disable ipv6 in docker
+container.</p>
+
+<p>If you&rsquo;re using docker compose you can add this line to disable ipv6,
+hence remove the <code>::1</code> entry from host file:</p>
+
+<pre><code>  sysctls:
+      net.ipv6.conf.all.disable_ipv6: 0
+</code></pre>
+
+  </section>
 </div>
 
 </section>
