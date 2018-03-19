@@ -1,0 +1,37 @@
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: website
+  namespace: axcoto
+spec:
+  selector:
+    app: website
+  ports:
+    - protocol: TCP
+      port: 80
+      name: web
+
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: axcoto-ingress
+  annotations:
+    kubernetes.io/tls-acme: "true" # enable certificates
+    kubernetes.io/axcoto.class: "nginx"
+  namespace: axcoto
+spec:
+  tls: # specify domains to fetch certificates for
+  - hosts:
+    - axcoto.com
+    - www.axcoto.com
+    secretName: axcoto-tls
+  rules:
+  - host: axcoto.com
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: website
+          servicePort: web

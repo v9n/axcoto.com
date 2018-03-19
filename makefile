@@ -33,3 +33,11 @@ deploy: push_subtree
 
 ssh_deploy:
 	ssh axcoto "bash deploy-axcoto.sh"
+
+docker:
+	docker build -t axcoto/website .
+	docker push axcoto/website:latest
+
+
+k8s-deploy:
+	kubectl apply -f k8s/
