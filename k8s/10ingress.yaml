@@ -17,9 +17,6 @@ apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   name: axcoto-ingress
-  annotations:
-    kubernetes.io/tls-acme: "true" # enable certificates
-    kubernetes.io/axcoto.class: "nginx"
   namespace: axcoto
 spec:
   tls: # specify domains to fetch certificates for
