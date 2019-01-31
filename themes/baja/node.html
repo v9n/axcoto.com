@@ -1,0 +1,10 @@
+{{ define "body" }}
+<section class="wrapper">
+  <div class="article">
+    <h1 id="title">
+      <span><a href="{{ .Permalink }}">{{ .Meta.Title }}</a></span>
+    </h1>
+    <section>{{ .Body }}</section>
+  </div>
+</section>
+{{end}}
