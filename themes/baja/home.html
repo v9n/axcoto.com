@@ -3,25 +3,24 @@
   <div class="columns is-mobile">
     <div class="column is-three-fifths is-offset-one-fifth">
       <div class="hero">
-        Hey, I'm Vinh. I'm a DevOps engineer who also love math. Here is posts I have written,
-        they ranges from infrastructure to software design and virtually anything that I learn.
-        I write to remember and to learn.
+        <p>
+          Hey, I'm Vinh. I'm a programmer who also loves math. Here are posts I have written,
+          they range from infrastructure to software design and virtually anything that I like.
+          I write to learn and remember.
+        </p>
       </div>
     </div>
   </div>
 
   <div class="columns is-mobile">
     <div class="column is-three-fifths is-offset-one-fifth">
-      <div class="post-list">
-        <ul id="list">
+      <div >
+        <ul class="post-list">
           {{ range .Nodes }}
-          <li>
+          <li class="post">
             <h4>
-              <span class="post-meta">{{ .Meta.DateFormatted }}</span><a href="{{ .Permalink }}">→ {{ .Meta.Title }}</a> 
+              <span class="post-meta">{{ .Meta.DateFormatted }}&nbsp;→&nbsp;</span><a class="is-size-6" href="{{ .Permalink }}">{{ .Meta.Title }}</a> 
             </h4>
-            <p>
-              <time class="pull-right post-list">{{ .Date.Format "Mon, Jan 2, 2006" }}</time>&nbsp;
-            </p>
           </li>
           {{ end }}
         </ul>

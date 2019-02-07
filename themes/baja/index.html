@@ -1,18 +1,25 @@
 {{define "body" }}
-<section class="wrapper">
-  <div class="article-index">
-    <h1 id="title">{{ .Title }}</h1>
-    <ul id="list">
-      {{ range .Nodes }}
-      <h4>
-        {{ .Meta.DateFormatted }}
-        <span><a href="{{ .Permalink }}">{{ .Meta.Title }}</a> </span>
-      </h4>
-      <p>
-      <time class="pull-right post-list">{{ .Date.Format "Mon, Jan 2, 2006" }}</time>&nbsp;
-      </p>
-      {{ end }}
-    </ul>
+<section class="container">
+  <div class="columns is-mobile">
+    <div class="column is-three-fifths is-offset-one-fifth">
+      <div class="post-list">
+        <header class="">
+          <h3 class="title is-3">
+            {{ len .Nodes }} Posts in {{ .Title }}
+          </h3>
+        </header>
+
+        <ul class="post-list">
+          {{ range .Nodes }}
+          <li class="post">
+            <h4>
+              <span class="post-meta">{{ .Meta.DateFormatted }}&nbsp;→&nbsp;</span><a class="is-size-6" href="/{{ .Permalink }}">{{ .Meta.Title }}</a> 
+            </h4>
+          </li>
+          {{ end }}
+        </ul>
+      </div>
+    </div>
   </div>
 </section>
 {{end}}

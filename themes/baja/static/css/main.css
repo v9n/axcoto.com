@@ -17,12 +17,13 @@ a {
   transition-delay: initial;
 }
 
-a:link, a:visited {
-  color: #333333;
+a, a:link, a:visited {
+  color: #FA743E;
 }
 
-a:hover, code {
+a:hover {
   color: #FA743E;
+  border-bottom: 1px solid #FA743E;
 }
 
 .ta-separator {
@@ -39,7 +40,24 @@ a:hover, code {
   display: inline-block;
 }
 
+.nav a {
+  color: #FA743E;
+}
+.nav a:hover {
+  border-bottom: 3px solid #FA743E;
+}
+
 .post-list {
   max-width: 780px;
   margin: auto;
+}
+.post a {
+  color: #333333;
+}
+.post-list .post {
+  margin: 0.5em 0;
+}
+
+.post-body p, h1, h2, h3,h4,h5,h6 {
+ margin: 1em 0;
 }

@@ -1,10 +1,19 @@
 {{ define "body" }}
-<section class="wrapper">
-  <div class="article">
-    <h1 id="title">
-      <span><a href="{{ .Permalink }}">{{ .Meta.Title }}</a></span>
-    </h1>
-    <section>{{ .Body }}</section>
+<div class="container">
+  <div class="columns is-mobile">
+    <div class="column is-three-fifths is-offset-one-fifth">
+      <div class="post">
+        <h2 class="title is-4">{{ .Meta.Title }}</h2>
+
+        {{ if .Meta.Tags }}
+        <p class="subtitle is-6">
+          Write at <code>{{ .Meta.DateFormatted }}</code> in <a href="/{{ .Meta.Category }}">{{ .Meta.Category }}</a> {{ range .Meta.Tags }} <a href="/tag/{{ . }}"><span class="tag">{{ . }}</span></a> {{ end }}
+        </p>
+        {{ end }}
+
+        <section class="post-body">{{ .Body }}</section>
+      </div>
+    </div>
   </div>
-</section>
+</div>
 {{end}}
