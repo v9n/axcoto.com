@@ -2,7 +2,7 @@
 date = "2016-12-09T10:58:44-08:00"
 title = "pass by reference or pass by value"
 draft = true
-
+tags  = ["Ruby"]
 +++
 
 When we are in school, they said it's either passing by reference or
