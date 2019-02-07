@@ -23,7 +23,6 @@ a, a:link, a:visited {
 
 a:hover {
   color: #FA743E;
-  border-bottom: 1px solid #FA743E;
 }
 
 .ta-separator {
@@ -52,7 +51,11 @@ a:hover {
   margin: auto;
 }
 .post a {
+  /*color: #9b4dca;*/
   color: #333333;
+}
+.post a:hover {
+  color: #FA743E;
 }
 .post-list .post {
   margin: 0.5em 0;
