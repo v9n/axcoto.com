@@ -1,17 +1,32 @@
 {{define "body" }}
-<section class="wrapper">
-  <div class="article-index">
-    <h1 id="title">Home layout</h1>
-    <ul id="list">
-      {{ range .Nodes }}
-      <h4>
-        <span><a href="{{ .Permalink }}">{{ .Meta.Title }}</a> </span>
-      </h4>
-      <p>
-      <time class="pull-right post-list">{{ .Date.Format "Mon, Jan 2, 2006" }}</time>&nbsp;
-      </p>
-      {{ end }}
-    </ul>
+<section class="container">
+  <div class="columns is-mobile">
+    <div class="column is-three-fifths is-offset-one-fifth">
+      <div class="hero">
+        Hey, I'm Vinh. I'm a DevOps engineer who also love math. Here is posts I have written,
+        they ranges from infrastructure to software design and virtually anything that I learn.
+        I write to remember and to learn.
+      </div>
+    </div>
+  </div>
+
+  <div class="columns is-mobile">
+    <div class="column is-three-fifths is-offset-one-fifth">
+      <div class="post-list">
+        <ul id="list">
+          {{ range .Nodes }}
+          <li>
+            <h4>
+              <span class="post-meta">{{ .Meta.DateFormatted }}</span><a href="{{ .Permalink }}">→ {{ .Meta.Title }}</a> 
+            </h4>
+            <p>
+              <time class="pull-right post-list">{{ .Date.Format "Mon, Jan 2, 2006" }}</time>&nbsp;
+            </p>
+          </li>
+          {{ end }}
+        </ul>
+      </div>
+    </div>
   </div>
 </section>
 {{end}}

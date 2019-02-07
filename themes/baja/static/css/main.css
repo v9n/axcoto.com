@@ -1,3 +1,7 @@
+body, a, p, span {
+  font-family: "Helvetica Neue","Segoe UI",Verdana,sans-serif;
+}
+
 .logo {
   display: block;
   margin: auto;
@@ -14,10 +18,10 @@ a {
 }
 
 a:link, a:visited {
-  color: #9b4dca;
+  color: #333333;
 }
 
-a:hover, code{
+a:hover, code {
   color: #FA743E;
 }
 
@@ -33,4 +37,9 @@ a:hover, code{
 .nav li {
   margin: 5px 10px;
   display: inline-block;
+}
+
+.post-list {
+  max-width: 780px;
+  margin: auto;
 }

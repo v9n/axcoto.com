@@ -5,6 +5,7 @@
     <ul id="list">
       {{ range .Nodes }}
       <h4>
+        {{ .Meta.DateFormatted }}
         <span><a href="{{ .Permalink }}">{{ .Meta.Title }}</a> </span>
       </h4>
       <p>
