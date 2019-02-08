@@ -7,8 +7,7 @@ type  = "page"
 
 Hi, I'm Vinh, father of 2 cute girls, husband and programmer.
 
-I'm from Vietnam but currently living in California but looking to
-migrate to Japan or Swedeen soon.
+I love programming, math, manga and poem.
 
 I'm mostly working on infrastructure and building internal tool.
 That means my code mostly use by developer for monitoring, debugging
@@ -28,7 +27,9 @@ video, some code repo to read and dev tools. You should subscribe.
 
 ## Consultant
 
-I run a [small DevOps consultancy](https://yeo.space), focus specially on AWS and Kubernetes. I help company to build a secure, scalable, flexible enough infrastructure.
+I run a [small DevOps consultancy](https://yeo.space), focus specially
+on AWS and Kubernetes. I help company to build a secure, scalable,
+flexible enough infrastructure.
 
 I develop and run [noty.im, a monitoring solution](https://noty.im) to
 solve my pain point helping my client monitor their services. You should
