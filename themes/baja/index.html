@@ -1,7 +1,7 @@
 {{define "body" }}
 <section class="container">
   <div class="columns is-mobile">
-    <div class="column is-three-fifths is-offset-one-fifth">
+    <div class="column">
       <div class="post-list">
         <header class="">
           <h3 class="title is-3">
@@ -13,7 +13,7 @@
           {{ range .Nodes }}
           <li class="post">
             <h4>
-              <span class="tag is-danger">{{ .Meta.DateFormatted }}&nbsp;→&nbsp;</span><a class="is-size-6" href="/{{ .Permalink }}">{{ .Meta.Title }}</a>
+              <span class="tag">{{ .Meta.DateFormatted }}&nbsp;→&nbsp;</span>&nbsp;<a class="is-size-6" href="/{{ .Permalink }}">{{ .Meta.Title }}</a>
             </h4>
           </li>
           {{ end }}
