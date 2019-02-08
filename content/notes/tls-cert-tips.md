@@ -1,6 +1,6 @@
 +++
 date = "2019-02-07T15:02:15-08:00"
-title = "tls cert tips"
+title = "Commands to work with TLS cert"
 draft = false
 hidden = false
 
