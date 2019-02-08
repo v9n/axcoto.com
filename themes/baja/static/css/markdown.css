@@ -252,15 +252,6 @@
   line-height: inherit;
 }
 
-.markdown-body a {
-  color: #0366d6;
-  text-decoration: none;
-}
-
-.markdown-body a:hover {
-  text-decoration: underline;
-}
-
 .markdown-body strong {
   font-weight: 600;
 }
