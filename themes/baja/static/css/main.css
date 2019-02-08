@@ -1,5 +1,5 @@
 body, a, p, span {
-  font-family: "Helvetica Neue","Segoe UI",Verdana,sans-serif;
+  font-family: "Helvetica Neue", "Segoe UI",Verdana,sans-serif;
 }
 
 .logo {
@@ -8,6 +8,7 @@ body, a, p, span {
 }
 
 a {
+  color: #FA743E;
   text-decoration: none;
 
   transition: color 0.1s linear;
@@ -23,6 +24,7 @@ a, a:link, a:visited {
 
 a:hover {
   color: #FA743E;
+  border-bottom: 3px solid #FA743E;
 }
 
 .ta-separator {
@@ -40,7 +42,6 @@ a:hover {
 }
 
 .nav a {
-  color: #FA743E;
 }
 .nav a:hover {
   border-bottom: 3px solid #FA743E;
@@ -50,12 +51,9 @@ a:hover {
   max-width: 780px;
   margin: auto;
 }
-.post a {
+.post-list a {
   /*color: #9b4dca;*/
   color: #333333;
-}
-.post a:hover {
-  color: #FA743E;
 }
 .post-list .post {
   margin: 0.5em 0;
