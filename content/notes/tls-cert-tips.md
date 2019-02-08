@@ -4,7 +4,7 @@ title = "tls cert tips"
 draft = false
 hidden = false
 
-tags = []
+tags = ["devops", "tls", "ssl"]
 +++
 
 When working with TLS cert, I need to check thing like what domain this

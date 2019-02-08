@@ -2,7 +2,7 @@
 date = "2016-07-04T00:09:09-07:00"
 draft = false
 title = "About"
-type  = "page"
+hidden = true
 +++
 
 Hi, I'm Vinh, father of 2 cute girls, husband and programmer.
