@@ -13,7 +13,7 @@
           {{ range .Nodes }}
           <li class="post">
             <h4>
-              <span class="tag">{{ .Meta.DateFormatted }}&nbsp;→&nbsp;</span>&nbsp;<a class="is-size-6" href="/{{ .Permalink }}">{{ .Meta.Title }}</a>
+              <span class="tag is-size-6">{{ .Meta.DateFormatted }}&nbsp;→</span>&nbsp;<a class="is-size-5" href="{{ .Permalink }}">{{ .Meta.Title }}</a>
             </h4>
           </li>
           {{ end }}

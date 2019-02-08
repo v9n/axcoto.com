@@ -1,3 +1,7 @@
+body {
+  font-size: 1.1em;
+}
+
 body, a, p, span {
   font-family: "Helvetica Neue", "Segoe UI",Verdana,sans-serif;
 }
@@ -16,6 +20,7 @@ a {
   transition-duration: 0.1s;
   transition-timing-function: linear;
   transition-delay: initial;
+  outline: none;
 }
 
 a, a:link, a:visited {
@@ -44,6 +49,12 @@ a:hover {
 .post-list {
   max-width: 780px;
   margin: auto;
+}
+
+.intro {
+  max-width: 780px;
+  margin: auto;
+  font-size: 1.2em;
 }
 
 .post-list a {

@@ -1,25 +1,27 @@
 {{define "body" }}
 <section class="container">
-  <div class="columns is-mobile">
-    <div class="column is-three-fifths is-offset-one-fifth">
+  <div class="columns">
+    <div class="column">
       <div class="hero">
-        <p>
-          Hey, I'm Vinh. I'm a programmer who also loves math. Here are posts I have written,
-          they range from infrastructure to software design and virtually anything that I like.
-          I write to learn and remember.
-        </p>
+        <div class="intro">
+          <p>
+            Hey, I'm Vinh. I'm a programmer who also loves math. Here are posts I have written,
+            they range from infrastructure to software design and virtually anything that I like.
+            I write to learn and remember.
+          </p>
+        </div>
       </div>
     </div>
   </div>
 
   <div class="columns is-mobile">
-    <div class="column is-three-fifths is-offset-one-fifth">
+    <div class="column">
       <div >
         <ul class="post-list">
           {{ range .Nodes }}
           <li class="post">
-            <h4>
-              <span class="tag">{{ .Meta.DateFormatted }}&nbsp;→&nbsp;</span>&nbsp;<a class="is-size-6" href="/{{ .Permalink }}">{{ .Meta.Title }}</a>
+            <h2 class="subtitle is-size-4-desktop">
+              <span class="tag is-size-6">{{ .Meta.DateFormatted }}&nbsp;→</span>&nbsp;<a class="is-size-5" href="{{ .Permalink }}">{{ .Meta.Title }}</a>
             </h4>
           </li>
           {{ end }}
