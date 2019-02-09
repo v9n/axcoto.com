@@ -4,6 +4,12 @@ CSS_DIR = public/css
 CSS_FILE = $(CSS_DIR)/main.css
 CSS_REV = main-$(shell md5 -r $(WORKDIR)/$(CSS_FILE) | awk '{print $$1}').css
 
+GIT_COMMIT := $(shell git rev-list -1 HEAD)
+
+k := kubectl
+
+export GIT_COMMIT
+
 server:
 	hugo server --theme=axcoto --buildDrafts --watch
 
@@ -35,9 +41,13 @@ ssh_deploy:
 	ssh axcoto "bash deploy-axcoto.sh"
 
 docker:
-	docker build -t axcoto/website .
+	docker build -t axcoto/website:$(GIT_COMMIT) .
+	docker push axcoto/website:$(GIT_COMMIT)
+	docker tag axcoto/website:$(GIT_COMMIT) axcoto/website:latest
 	docker push axcoto/website:latest
 
 
+
+
 k8s-deploy:
-	kubectl apply -f k8s/
+	envsubst < k8s/20deployment.yaml | $(k) apply -f -

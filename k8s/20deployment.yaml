@@ -18,5 +18,5 @@ spec:
     spec:
       terminationGracePeriodSeconds: 60
       containers:
-      - image: axcoto/website
+      - image: axcoto/website:${GIT_COMMIT}
         name: website
