@@ -1,7 +1,7 @@
 +++
 date = "2017-05-11T13:02:23-07:00"
 title = "replay production traffic"
-draft = true
+draft = false
 
 +++
 
@@ -59,4 +59,4 @@ sudo /usr/local/bin/gor  --input-raw :32846 --output-http "noty.im"
 By adjusting `output-http` instead of `file` we can replay them on
 realtime to another host. This is very useful when doing migration to a
 new server/config and want to see how they are perform compare to old
-one
+one.
