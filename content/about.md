@@ -9,7 +9,7 @@ Hi, I'm Vinh, father of 2 cute girls, husband and programmer.
 
 I love programming, math, manga and poem.
 
-I'm mostly working on infrastructure and building internal tool.
+I'm mostly working on infrastructure and building internal tools.
 That means my code mostly use by developer for monitoring, debugging
 purpose.
 
@@ -17,13 +17,14 @@ I love programming languages and know a wide range of language.
 Currenly I'm dabble in Crystal, Elixir and Rust. I know Ruby, Go,
 PHP and JavaScript quite well. Shell is my bread and butter.
 
-I belive that programming is the only way for the poor to escape.
-It requires minimal capital to invest in equipment, the limit is
-your imagination.
+I belive that programming is the best way for the poor to escape
+poverty. It requires minimal capital to invest in equipment, the limit
+ is your imagination.
 
 I run a newsletter call
-[BetterDev](https://betterdev.link), it has a weekly links of article,
-video, some code repo to read and dev tools. You should subscribe.
+[BetterDev](https://betterdev.link), a weekly newsletter with links
+about programming, video, some code repos to read and dev tools. You should
+subscribe.
 
 ## Consultant
 
