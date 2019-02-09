@@ -45,7 +45,7 @@ a:hover {
   border-bottom: 3px solid #FA743E;
 }
 
-.post-list {
+.post-list, .post {
   max-width: 780px;
   margin: auto;
 }
