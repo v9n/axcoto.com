@@ -1,10 +1,9 @@
-body {
-  font-size: 1.1em;
+/* some day I want to convert this into a minimal framework */
+* {
+  font-family: 'Avenir Next', 'HelveticaNeue-Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
-body, a, p, span {
-  font-family: "Helvetica Neue", "Segoe UI",Verdana,sans-serif;
-}
+body { font-size: 1em; }
 
 .logo {
   display: block;
