@@ -1,8 +1,7 @@
 +++
 date = "2019-02-07T15:02:15-08:00"
-title = "Commands to work with TLS cert"
+title = "Commands to work with TLS certs"
 draft = false
-hidden = false
 
 tags = ["devops", "tls", "ssl"]
 +++
@@ -39,8 +38,7 @@ openssl x509 -enddate -noout -in file.pem
 openssl x509 -noout -issuer -subject -dates -in file.pem
 ```
 
-References:
+### References
 
-- [https://www.shellhacks.com/openssl-check-ssl-certificate-expiration-date/
-](https://www.shellhacks.com/openssl-check-ssl-certificate-expiration-date/)
-- [https://stackoverflow.com/questions/21297853/how-to-determine-ssl-cert-expiration-date-from-a-pem-encoded-certificate](https://stackoverflow.com/questions/21297853/how-to-determine-ssl-cert-expiration-date-from-a-pem-encoded-certificate)
+- [shellhacks](https://www.shellhacks.com/openssl-check-ssl-certificate-expiration-date/)
+- [stackoverflow](https://stackoverflow.com/questions/21297853/how-to-determine-ssl-cert-expiration-date-from-a-pem-encoded-certificate)
