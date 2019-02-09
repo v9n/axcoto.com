@@ -1,24 +1,8 @@
 {{define "body" }}
 <section class="container">
-  <div class="columns is-mobile">
+  <div class="columns">
     <div class="column">
-      <div class="post-list">
-        <header class="">
-          <h3 class="title is-3">
-            {{ len .Nodes }} Posts in {{ .Title }}
-          </h3>
-        </header>
-
-        <ul class="post-list">
-          {{ range .Nodes }}
-          <li class="post">
-            <h4>
-              <span class="tag is-size-6">{{ .Meta.DateFormatted }}&nbsp;→</span>&nbsp;<a class="is-size-5" href="{{ .Permalink }}">{{ .Meta.Title }}</a>
-            </h4>
-          </li>
-          {{ end }}
-        </ul>
-      </div>
+      {{ template "post-list" . }}
     </div>
   </div>
 </section>

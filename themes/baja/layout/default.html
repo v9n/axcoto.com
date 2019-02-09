@@ -60,3 +60,38 @@
   </body>
 </html>
 {{ end }}
+
+
+{{ define "cell" }}
+<li class="post">
+  <h2 class="subtitle is-size-4-desktop">
+  <span class="tag is-size-6">{{ .Meta.DateFormatted }}&nbsp;→</span>&nbsp;<a class="is-size-5" href="{{ .Permalink }}">{{ .Meta.Title }}</a>
+  </h2>
+</li>
+{{ end }}
+
+{{ define "post-list" }}
+<div class="post-list">
+  {{ if .Current.IsTag }}
+  <header class="">
+    <h3 class="title is-3">
+      {{ len .Nodes }} Post(s) in {{ .Title }}
+    </h3>
+  </header>
+  {{ end }}
+
+  {{ if .Current.IsDir }}
+  <header class="">
+    <h3 class="title is-3">
+      →&nbsp; {{ .Title }}
+    </h3>
+  </header>
+  {{ end }}
+
+  <ul class="post-list">
+    {{ range .Nodes }}
+    {{ template "cell" . }}
+    {{ end }}
+  </ul>
+</div>
+{{ end }}
