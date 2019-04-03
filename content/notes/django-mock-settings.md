@@ -1,7 +1,7 @@
 +++
 date = "2019-04-03T01:26:22-07:00"
 title = "Mock setting in Django"
-draft = true
+draft = false
 
 tags = ['django', 'mock']
 +++
