@@ -5,13 +5,17 @@ title = "About"
 type  = "page"
 +++
 
-Hi, I'm Vinh, father of 2 cute girls, husband and programmer.
+Hi, I'm Vinh, father of a girl and a boy, husband and programmer.
 
-I love programming, math, manga and poem.
+I love math, programming, manga and poem.
 
 I'm mostly working on infrastructure and building internal tools.
 That means my code mostly use by developer for monitoring, debugging
 purpose.
+
+I have been developing software professionally since 2008. I'm a
+generalist. I can chime in and work across stack: front-end, back-end,
+mobile, devops, whatever it takes to get the product success.
 
 I'm interested in programming languages and know a wide range of language.
 Currenly I'm dabble in Crystal, Elixir and Rust. I know Ruby, Go,
