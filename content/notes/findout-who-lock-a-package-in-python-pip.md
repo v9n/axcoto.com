@@ -1,7 +1,7 @@
 +++
 date = "2019-04-19T12:05:44-07:00"
 title = "findout who lock a package in python pip"
-draft = true
+draft = false
 
 tags = ["python", "pip", "lock"]
 +++
