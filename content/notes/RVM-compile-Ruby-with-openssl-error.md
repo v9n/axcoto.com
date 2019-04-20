@@ -1,7 +1,7 @@
 +++
 date = "2019-02-15T12:36:41-08:00"
 title = "RVM compile Ruby with openssl error"
-draft = true
+draft = false
 
 tags = ["rvm", "ruby", "hack"]
 +++
