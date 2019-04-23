@@ -1,9 +1,17 @@
-/* some day I want to convert this into a minimal framework */
 * {
   font-family: 'Avenir Next', 'HelveticaNeue-Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: #111;
 }
 
-body { font-size: 1em; }
+main {
+  max-width: 38rem;
+  padding: 2rem;
+  margin: auto;
+}
+
+body {
+  font-size: 1.2em;
+}
 
 .logo {
   display: block;
@@ -52,8 +60,11 @@ a:hover {
 
 .intro {
   max-width: 780px;
-  margin: auto;
-  font-size: 1.2em;
+  margin: 2em auto;
+}
+
+.post {
+  list-style: none;
 }
 
 .post-list a {
@@ -61,14 +72,46 @@ a:hover {
   color: #333333;
 }
 
+.post-list .post .title {
+  text-align: left;
+}
+
+.post .title {
+  font-weight: normal;
+  text-align: center;
+}
+
+.tag {
+  font-weight: 200;
+  color: #333;
+  font-size: 0.9em;
+}
+
+.post .subtitle {
+  font-size: 0.8em;
+  text-align: center;
+  font-weight: 200;
+}
+
 .post-list .post {
   margin: 0.5em 0;
 }
 
-.post-body p, h1, h2, h3,h4,h5,h6 {
- margin: 1em 0;
+.post-body p, h1, h2, h3, h4, h5, h6 {
+  margin: 1em 0;
+}
+
+.post-body p {
+  font-size: 1.2em;
 }
 
 .markdown-body a:hover {
   text-decoration: none;
+}
+
+.footer {
+  margin: 2em 0;
+  text-align: center;
+  font-weight: 200;
+  font-size: 0.8em;
 }
