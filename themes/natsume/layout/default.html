@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Axcoto - Write to Learn</title>
+    {{ template "title" . }}
     <meta name="description" content="Axcoto is a free lancer service focus in web&amp; mobile development. I also sell ready-to-use code library such as WordPress plugin, jQuery plugin, custom Rails/PHP apps">
 
     <link rel="stylesheet" href="{{ asset "/css/main.css" }}">
@@ -31,7 +31,7 @@
           <li><a class="is-size-5" href="/">Home</a></li>
           <li><a class="is-size-5" href="/about">About</a></li>
           <li><a class="is-size-5" href="https://betterdev.link" target="_blank">News Letter</a></li>
-          <li><a class="is-size-5" href="https://yeo.space" target="_blank">Consultant</a></li>
+          <li><a class="is-size-5" href="https://getopty.com" target="_blank">Consultant</a></li>
           <li><a class="is-size-5" href="https://noty.im">Uptime monitoring</a></li>
         </ul>
       </div>
@@ -53,6 +53,9 @@
 </html>
 {{ end }}
 
+{{ define "title" }}
+<title>Axcoto - Write to Learn</title>
+{{ end }}
 
 {{ define "cell" }}
 <li class="post">
