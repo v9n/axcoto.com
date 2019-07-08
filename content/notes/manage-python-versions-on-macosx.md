@@ -85,8 +85,28 @@ fi
 
 ## Using pyenv's Python version
 
+In a given directory, run this
+
+```
+pyenv local 3.7.3
 ```
 
+This will also create a file call `.python-version` in your current
+directory. Later on, when you cd into this directory again, the right
+Python version will automatically load for you.
+
+Example
+
+```
+# default system python cuz no `.python-version` file is found
+➜ cd ~
+➜ python -V
+Python 2.7.15
+
+# When I move into this directory, python version changed
+➜ cd ~/src/axcoto.com
+➜ python -V
+Python 3.7.3
 ```
 
 ## Install requirements.txt with native dependencies
