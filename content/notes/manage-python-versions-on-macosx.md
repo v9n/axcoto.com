@@ -138,3 +138,60 @@ linked by `homebrew` so they usually in `/usr/local/lib/[name]`. When
 you run `brew install`, it will tell you that the package isn't linked
 and the path to it etc. Just pay attention to the `brew install` output
 and you should be good.
+
+## How does pyenv work
+
+During install, `pyenv` install python versions into `~/.pyenv/versions`
+
+```
+ls -la ~/.pyenv/versions
+total 0
+drwxr-xr-x  4 vinh  staff  128 Jul  7 12:57 .
+drwxr-xr-x  4 vinh  staff  128 Jul  7 00:38 ..
+drwxr-xr-x  6 vinh  staff  192 Jul  7 13:00 3.6.7
+drwxr-xr-x  6 vinh  staff  192 Jul  7 00:38 3.7.3
+```
+
+the script we add to our `shell rc` file prepend `pyenv path` to a file
+call `python`.
+
+```
+➜ echo $PATH
+/Users/vinh/.pyenv/shims:/Users/vinh/.pyenv/bin:/Users/vinh/.cargo/bin:/Users/vinh/.cargo/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/TeX/texbin:/Users/vinh/.rvm/bin:/Users/vinh/bin:/Users/vinh/go/bin:
+
+➜ which python
+/Users/vinh/.pyenv/shims/python
+```
+
+This file isn't the Python executable but a shell script that try to
+load and use `exec` to replace the shell process with the right Python
+version.
+
+```
+➜ cat /Users/vinh/.pyenv/shims/python
+#!/usr/bin/env bash
+set -e
+[ -n "$PYENV_DEBUG" ] && set -x
+
+program="${0##*/}"
+if [[ "$program" = "python"* ]]; then
+  for arg; do
+    case "$arg" in
+    -c* | -- ) break ;;
+    */* )
+      if [ -f "$arg" ]; then
+        export PYENV_FILE_ARG="$arg"
+        break
+      fi
+      ;;
+    esac
+  done
+fi
+
+export PYENV_ROOT="/Users/vinh/.pyenv"
+exec "/usr/local/Cellar/pyenv/1.2.11/libexec/pyenv" exec "$program" "$@"
+```
+
+Knowing this detail will help you debug any issue with `pyenv` not
+loading or picking up the right Python version. You can simply debug the
+PATH or the shim script.
