@@ -1,5 +1,5 @@
 * {
-  font-family: 'Avenir Next', 'HelveticaNeue-Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
   color: #111;
 }
 
@@ -11,6 +11,7 @@ main {
 
 body {
   font-size: 1.2em;
+  line-height: 1.3;
 }
 
 .logo {
