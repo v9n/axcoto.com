@@ -1,7 +1,7 @@
 +++
 date = "2020-02-14T00:36:03-08:00"
 title = "Elixir: How to cleanup dependencies from mix.lock"
-draft = true
+draft = false
 
 tags = []
 +++
