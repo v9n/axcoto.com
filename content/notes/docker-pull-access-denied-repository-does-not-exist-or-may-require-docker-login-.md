@@ -25,4 +25,6 @@ they may doing this on purpose.
 
 It never happen on Ubuntu but it happens to me 3 times in last 9 months.
 
-Did anyone experience this? I would love to here?
+It seems to only happen on the edge channel, so might be some bug on their
+edge release as well. I cannot remember the second time, but first and
+third were on edge channel.
