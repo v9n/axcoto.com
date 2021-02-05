@@ -2,33 +2,35 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: website
-  namespace: axcoto
+  name: axcoto
+  namespace: opty
 spec:
   selector:
-    app: website
+    app: axcoto
   ports:
     - protocol: TCP
       port: 80
       name: web
 
 ---
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: axcoto-ingress
-  namespace: axcoto
+  namespace: opty
 spec:
   tls: # specify domains to fetch certificates for
   - hosts:
     - axcoto.com
     - www.axcoto.com
-    secretName: axcoto-tls
   rules:
   - host: axcoto.com
     http:
       paths:
       - path: /
+        pathType: "ImplementationSpecific"
         backend:
-          serviceName: website
-          servicePort: web
+          service:
+            name: axcoto
+            port:
+              name: web
