@@ -1,9 +1,9 @@
 +++
 date = "2020-02-27T06:00:31-08:00"
 title = "Docker: pull access denied, repository does not exist or may require 'docker login'"
-draft = true
+draft = false
 
-tags = [DevOps, Docker]
+tags = ["DevOps", "Docker"]
 +++
 
 When you see this kind of error on a public repository when doing docker
