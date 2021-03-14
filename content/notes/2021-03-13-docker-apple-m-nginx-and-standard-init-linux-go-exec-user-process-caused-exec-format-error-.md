@@ -1,9 +1,9 @@
 +++
 date = "2021-03-13T23:59:08-08:00"
-title = "docker, apple m1, nginx and standard_init_linux.go:211: exec user process caused "exec format error""
+title = 'docker, apple m1, nginx and standard_init_linux.go:211: exec user process caused "exec format error"'
 draft = false
 
-tags = ['docker', 'apple m1']
+tags = ["docker", "apple m1"]
 +++
 
 # Summary
