@@ -41,7 +41,7 @@ ssh_deploy:
 	ssh axcoto "bash deploy-axcoto.sh"
 
 docker:
-	docker build -t axcoto/website:$(GIT_COMMIT) .
+	docker build --platform amd64 -t axcoto/website:$(GIT_COMMIT) .
 	docker push axcoto/website:$(GIT_COMMIT)
 	docker tag axcoto/website:$(GIT_COMMIT) axcoto/website:latest
 	docker push axcoto/website:latest
