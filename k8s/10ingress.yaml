@@ -34,13 +34,3 @@ spec:
             name: axcoto
             port:
               name: web
-  - host: "xn--1h8hqv.ml"
-    http:
-      paths:
-      - path: /
-        pathType: "ImplementationSpecific"
-        backend:
-          service:
-            name: axcoto
-            port:
-              name: web
