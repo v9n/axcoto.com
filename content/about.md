@@ -9,40 +9,70 @@ Thank you for visiting my corner. I'm Vinh, father of a girl and a boy,
 husband and programmer. The name of this blog come from
 [Ascot](https://magicknightrayearth.fandom.com/wiki/Ascot#:~:text=Ascot%20in%20the%20art%20book,considers%20to%20be%20his%20friends.&text=In%20the%20anime%20he%20destroys,and%20essentially%20causes%20her%20death.)
 
-Vinh loves math, programming, manga and poem.
+I loves math, programming, manga and poem.
 
-He's mostly working on infrastructure and developer tools. His code are used
-by developer for monitoring, debugging, inspecting purpose. His works is
+I mostly work on infrastructures and developer tools. My code are used
+by developer for monitoring, debugging, inspecting purpose. My works is
 to help other developer build better tools by building tool.
 
-He has been developing software professionally since 2008. Being a
-generalist, He can chime in and work across stack: front-end, back-end,
-mobile, devops, whatever it takes to get the product success. Though he
-tends to avoid front-end. When he do front-end, as in JavaScript+CSS, He
-tried to keep them minimal.
+I have been developing software professionally since 2008. Being a
+generalist, I can chime in and work across stack: front-end, back-end,
+mobile, devops, whatever it takes to get the product success. I used
+React a lot but venturing out into Svelve recently.
 
-He's interested in programming languages and know a wide range of language.
-He has very strong opnion on how to write software. He's big fan of
-KISS. Time to time, he hacks on a toy Lisp language call [Mochi], name
-after his daughter.
+I'm interested in programming languages, compiler and intepreter design,
+the core fundamental of computer like CPU, Network.
 
-He belives that programming is the best way for the poor to escape
+I know a wide range of languages and can chime in to work on anything.
+The two languages that cause me a lot of time to wrap my head around
+were Rust and Erlang.
+
+I have very strong opnion on how to write software, as a result I'm big fan
+of KISS.
+
+I belive that programming is the best way for the poor to escape
 poverty. It requires minimal capital to invest in equipments, yet
 deliver an vast amount of power to run the web.
 
-He runs a newsletter call
+I runs a newsletter call
 [BetterDev](https://betterdev.link), a weekly newsletter with links
 about programming, video, some code repos to read and dev tools. You should
 subscribe.
 
 ## Consultant
 
-He run a [small DevOps consultancy](https://getopty.com), focus specially
-on AWS and Kubernetes. He wants to help company to build a secure, scalable,
-and flexible enough infrastructure.
+I run a [small DevOps consultancy](https://getopty.com), focus specially
+on AWS, GCP, and Kubernetes but I can help anyone. I'm very proud of my
+unique skill in Infrastructure and Coding skill so I can work on
+anything.
 
-He also run [noty.im, a monitoring solution](https://noty.im) to
-solve his pain point on uptime, cron monitoring. You should use it.
+My years of experience shipping software that require high uptime bring
+me an opportunity to learn about building resilient softwares and
+applied it to my client work
+
+## SaaS
+
+I build SaaS to scratch my own itches first, and eventually release to
+the world.
+
+### [Mailwip](https://mailwip.com)
+
+Mailwip is an email forwarding solution that allow you to points your
+domains to our MX server and configure as many as mail alias as you
+want. Support webhook, email to blog, complicated regex routing and
+serverless email processing
+
+### [Lemon Winds](https://lemonwinds.com)
+
+Lemon Winds allow you to monitor site like Reddit, Hacker News and get
+alert when someone mention a keyword.
+
+Very useful if you're a SaaS founder
+
+### [Noty](https://noty.im)
+
+I also run [noty.im, a monitoring solution](https://noty.im) to
+solve my pain point on uptime, cron monitoring. You should use it.
 
 
 ## Open source
