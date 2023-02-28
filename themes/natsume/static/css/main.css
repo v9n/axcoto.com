@@ -40,14 +40,22 @@ a:hover {
   border-bottom: 2px solid #FA743E;
 }
 
+.container {
+  max-width: 780px;
+  margin: auto;
+}
+
+.hero {
+  display: flex
+}
+
 .nav {
-  float: none;
-  text-align: center;
+  display: flex;
 }
 
 .nav li {
   margin: 5px 10px;
-  display: inline-block;
+  display: flex;
 }
 
 .nav a:hover {
