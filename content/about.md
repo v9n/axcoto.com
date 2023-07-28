@@ -6,8 +6,7 @@ type  = "page"
 +++
 
 Thank you for visiting my corner. I'm Vinh, father of a girl and a boy,
-husband and programmer. The name of this blog come from
-[Ascot](https://magicknightrayearth.fandom.com/wiki/Ascot#:~:text=Ascot%20in%20the%20art%20book,considers%20to%20be%20his%20friends.&text=In%20the%20anime%20he%20destroys,and%20essentially%20causes%20her%20death.)
+husband and programmer.
 
 I loves math, programming, manga and poem.
 
@@ -68,6 +67,11 @@ Lemon Winds allow you to monitor site like Reddit, Hacker News and get
 alert when someone mention a keyword.
 
 Very useful if you're a SaaS founder
+
+### [Asa Town](https://asa.town)
+
+A personal name that link to all of your userful links, identity, take
+payment
 
 ### [Noty](https://noty.im)
 
