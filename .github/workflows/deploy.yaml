@@ -1,0 +1,37 @@
+name: Deploy
+
+on:
+  workflow_dispatch:
+    inputs:
+      targets:
+        description: where to deploy to
+        default: 'moon1,m1,m2'
+        required: true
+
+jobs:
+  gen-params:
+    runs-on: ubuntu-latest
+    outputs:
+      targets: ${{ steps.set-matrix.outputs.targets }}
+    steps:
+      - id: set-matrix
+        run: |
+          echo "=$(echo -n ${{ inputs.targets }} | jq --raw-input --slurp 'split(",")' -c)" >> $GITHUB_OUTPUT
+          cat $GITHUB_OUTPUT
+
+  build-docker:
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+  run-deploy:
+    name: Run deploy
+    needs: [gen-params, build-docker]
+    strategy:
+      matrix:
+         targets: ${{ fromJSON(needs.gen-params.outputs.targets) }}
+
+    steps:
+      - name: Execute deploycommant
+        run: |
+          echo deploy to ${{ matrix.targets }}
