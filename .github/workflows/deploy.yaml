@@ -20,11 +20,13 @@ jobs:
           cat $GITHUB_OUTPUT
 
   build-docker:
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v2
 
   run-deploy:
+    runs-on: ubuntu-latest
     name: Run deploy
     needs: [gen-params, build-docker]
     strategy:
