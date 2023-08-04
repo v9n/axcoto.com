@@ -16,7 +16,7 @@ jobs:
     steps:
       - id: set-matrix
         run: |
-          echo "=$(echo -n ${{ inputs.targets }} | jq --raw-input --slurp 'split(",")' -c)" >> $GITHUB_OUTPUT
+          echo "targets=$(echo -n ${{ inputs.targets }} | jq --raw-input --slurp 'split(",")' -c)" >> $GITHUB_OUTPUT
           cat $GITHUB_OUTPUT
 
   build-docker:
